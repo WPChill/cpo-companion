@@ -1,0 +1,73 @@
+.column-ctct-image { width:80px; }
+.column-ctct-image img { border-radius:5px; }
+.type-cpo_testimonial .column-ctct-image img,
+.type-cpo_team .column-ctct-image img { border-radius:50px; }
+
+/* FONTS */
+.fontawesome { font-family: 'fontawesome'; }
+
+/* --------------------------------------------------------------
+1. PLUGIN SETTINGS PAGE
+-------------------------------------------------------------- */
+
+i.ctsc-shortcodes-icon { background-image: url('../images/icon-shortcodes.png'); }
+
+/* HEADER */
+.ctsc-header { display:block; overflow:hidden; padding:0; margin:30px 0; }
+.ctsc-header-title { font-family:'Open Sans', Arial, sans-serif; font-size:30px; margin:0 0 20px; font-weight:bold; }
+.ctsc-header-meta { margin:0 0 15px; }
+.header-social-item { float:left; }
+.ctsc-badge { float:right; background:url(../images/ctsc-badge.png) no-repeat center #9039aa; background-size:100% auto; color:#ebf; font-size:14px; font-weight:bold; text-align:center; padding:60px 0 0; width:80px; height:30px; border-radius:2px; }
+
+/* Navigation */
+.ctsc-menu { overflow:hidden; margin:20px 0 0; }
+.ctsc-menu ul { display:block; margin:0; padding-left:10px; border-bottom:1px solid #bbb; }
+.ctsc-menu li { display:inline-block; text-align:center; margin:0 10px -1px 0; padding:0; background:#ddd; color:#21759B; padding:15px 15px; font-family:'Open Sans'; font-weight:bold; letter-spacing:1px; text-shadow:0px 1px 0px #fff; border:1px solid #bbb; cursor:pointer; -moz-transition:0.2s all; -webkit-transition:0.2s all; transition:0.2s all; }
+.ctsc-menu li:hover { background:#f2f2f2; color:#D54E21; }
+.ctsc-menu li.active { cursor:default; border-bottom:1px solid #f1f1f1; background:#f1f1f1; color:#D54E21; }
+
+.ctsc-languages { margin:20px 0 30px; }
+
+/* Layout */
+.ctsc-settings-form { padding:40px 0 0; margin:0; }
+.ctsc-block { overflow:hidden; padding:0; margin:0; }
+.ctsc-block .item { overflow:hidden; padding:0; margin:0 0 30px; }
+.ctsc-block .field-title { float:left; width:230px; margin-top:4px; }
+.ctsc-block .field-content { float:left; width:370px; margin:0; }
+.ctsc-block .field-desc { margin-left:630px; color:#666; font-size:14px; font-weight:normal; max-width:700px; line-height:1.6; }
+/* Image Lists */
+.form_image_list_item {display:inline-block; text-align:center; margin:0 12px 12px 0; line-height:0; } 
+.form_image_list_item img { padding:3px; border-radius:2px; background:#fff; box-shadow:0 1px 2px 1px rgba(0,0,0,0.5); -moz-transition:0.4s all; -webkit-transition:0.4s all; transition:0.4s all; }
+.form_image_list_item .selected { background:#1e8cbe; }
+.form_image_list_item input[type=radio] {display: none;}
+
+/* Form Fields */
+.ctsc-block input[type=text], 
+.ctsc-block input[type=upload] { border-color:#ccc; background:#fff; margin:1px; padding:4px 3px; border-radius:2px; border-style:solid; border-width:1px; width:100%; border-color:#ccc; background:#f9f9f9; }
+.ctsc-block input[type=upload] { width:70%; }
+.ctsc-block textarea { font-family:monospace; width:100%; height:100px; background:#f9f9f9; max-width:100%; min-width:100%; max-height:350px; min-height:100px; border-color:#ccc; }
+.ctsc-block select { width:100%; }
+.ctsc-block option:disabled { background:#ddd; font-weight:bold; padding:5px 0; }
+.ctsc-block input.color { width:70px; }
+.colorselector { display:inline; background:url(../images/icon_colorpicker.gif) no-repeat right; margin-left:10px; padding:2px 30px 2px 20px; width:20px; height:25px; border:2px solid #222; border-width:2px; cursor:pointer; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; }
+
+/* Separator */
+.ctsc-separator { margin:5px 0px 30px; font-size:26px; font-weight:bold; }
+.ctsc-separator .separator-desc { clear:both; font-size:13px; font-weight:normal; color:#999; }
+.ctsc-divider { clear:both; margin:50px 0 30px; border-bottom:1px solid #ddd; padding:0 0 10px; }
+
+/* Buttons */
+.ctsc-block .upload_button { width:25%; margin:0; float:right; background:#fff; cursor:pointer; border:1px solid #aaa; border-radius:3px; }
+.upload_preview { display:block; line-height:0; max-width:100%; margin:10px 0 0; border:3px solid #ddd; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.ctsc-buttons { float:right; overflow:hidden; background:none; width:700px; padding:50px 0px 0px; text-align:right; }
+.ctsc-block input.ctsc-submit { padding:5px 15px; height:auto; font-weight:bold; font-size:14px; letter-spacing:1px; }
+input.ctsc-submit:hover { }
+
+.font_preview { display:block; padding:20px 15px; font-size:20px; background:#fff; border:1px solid #ddd; margin:5px 0; box-shadow:0 2px 2px -2px rgba(0,0,0,0.3); border-radius:2px; }
+
+.mce-window.mce-container.mce-ctsc-generator-popup .mce-container-body.mce-abs-layout { overflow:hidden; }
+
+/* Small Screens */
+@media only screen and (max-width:1024px){
+	.ctsc-block .field-desc { clear:left; margin-left:230px; padding-top:10px; }
+}
