@@ -3,9 +3,8 @@
 /* Separator Shortcode */
 if ( ! function_exists( 'cpo_shortcode_separator' ) ) {
 	function cpo_shortcode_separator( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-fontawesome' );
-		wp_enqueue_script( 'ctsc-core' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_style( 'cpo-companion-fontawesome' );
+		wp_enqueue_script( 'cpo-companion-core' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -26,8 +25,7 @@ if ( ! function_exists( 'cpo_shortcode_separator' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 

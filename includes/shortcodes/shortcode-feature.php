@@ -3,8 +3,7 @@
 /* Feature Block Shortcode */
 if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 	function cpo_shortcode_feature( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-fontawesome' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_style( 'cpo-companion-fontawesome' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -27,7 +26,7 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 		);
 
 		//Set values
-		$element_class     .= ' ctsc-feature-' . trim( strip_tags( $attributes['size'] ) );
+		$element_class     = ' ctsc-feature-' . trim( strip_tags( $attributes['size'] ) );
 		$element_class     .= ' ctsc-feature-' . $attributes['style'];
 		$element_class     .= ' ' . $attributes['class'];
 		$element_image      = '';
@@ -64,8 +63,8 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 
@@ -84,7 +83,7 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 		if ( '' != $attributes['url'] ) {
 			$output .= '<a href="' . esc_url( $attributes['url'] ) . '">';
 		}
-		$output .= esc_html( $title );
+		$output .= esc_html( $attributes['title'] );
 		if ( '' != $attributes['url'] ) {
 			$output .= '</a>';
 		}

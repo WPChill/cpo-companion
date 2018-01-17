@@ -3,7 +3,6 @@
 /* Testimonial Shortcode */
 if ( ! function_exists( 'cpo_shortcode_testimonial' ) ) {
 	function cpo_shortcode_testimonial( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'name'      => '(No Name)',
@@ -32,8 +31,8 @@ if ( ! function_exists( 'cpo_shortcode_testimonial' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 

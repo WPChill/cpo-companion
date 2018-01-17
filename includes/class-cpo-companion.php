@@ -36,7 +36,6 @@ class CPO_Companion {
 	private function define_public_hooks() {
 
 		add_action( 'plugins_loaded', array( $this, 'set_locale' ) );
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_styles' ) );
 
 	}
@@ -59,7 +58,7 @@ class CPO_Companion {
 
 	public function front_styles() {
 
-		wp_register_style( 'cpo-companion-fontawesome', CPO_COMPANION_ASSETS . 'css/fontawesome.css' );
+		wp_enqueue_style( 'cpo-companion-fontawesome', CPO_COMPANION_ASSETS . 'css/fontawesome.css' );
 		wp_enqueue_style( 'cpo-companion-style', CPO_COMPANION_ASSETS . 'css/style.css' );
 
 		wp_register_script( 'cpo-companion-core', CPO_COMPANION_ASSETS . 'js/core.js', array( 'jquery' ), false, true );

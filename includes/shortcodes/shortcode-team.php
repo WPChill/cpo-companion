@@ -3,7 +3,6 @@
 /* Team Member Shortcode */
 if ( ! function_exists( 'cpo_shortcode_team' ) ) {
 	function cpo_shortcode_team( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'name'      => '(No Name)',
@@ -35,8 +34,8 @@ if ( ! function_exists( 'cpo_shortcode_team' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 

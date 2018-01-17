@@ -4,8 +4,8 @@
 if ( ! function_exists( 'cpo_shortcode_accordion' ) ) {
 	function cpo_shortcode_accordion( $atts, $content = null ) {
 		//Enqueue necessary scripts
-		wp_enqueue_script( 'ctsc-toggles' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_script( 'cpo-companion-toggles' );
+		wp_enqueue_style( 'cpo-companion-fontawesome' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -30,25 +30,25 @@ if ( ! function_exists( 'cpo_shortcode_accordion' ) ) {
 		$element_id      = '' != $attributes['id'] ? ' id="' . $attributes['id'] . '"' : '';
 
 		//Accordion Icon
-		if ( '' != $icon ) {
-			$element_icon = '<span class="ctsc-accordion-icon primary_color icon-' . esc_attr( $icon ) . '"></span> ';
-			wp_enqueue_style( 'ctsc-fontawesome' );
+		if ( '' != $attributes['icon'] ) {
+			$element_icon = '<span class="ctsc-accordion-icon primary_color icon-' . esc_attr( $attributes['icon'] ) . '"></span> ';
+			wp_enqueue_style( 'cpo-companion-fontawesome' );
 		}
 
 		//Accordion State
-		if ( 'open' == $state ) {
+		if ( 'open' == $attributes['state'] ) {
 			$element_class  .= ' ctsc-accordion-open';
 			$element_display = '';
 		}
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 
 		$output  = '<div class="ctsc-accordion ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . esc_attr( $element_group ) . '>';
-		$output .= '<h4 class="ctsc-accordion-title">' . $element_icon . esc_html( $title ) . '</h4>';
+		$output .= '<h4 class="ctsc-accordion-title">' . $element_icon . esc_html( $attributes['title'] ) . '</h4>';
 		$output .= '<div class="ctsc-accordion-content"' . esc_attr( $element_display ) . '>' . wp_kses_post( cpo_do_shortcode( $content ) ) . '</div>';
 		$output .= '</div>';
 

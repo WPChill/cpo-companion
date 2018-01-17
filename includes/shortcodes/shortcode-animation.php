@@ -3,9 +3,8 @@
 /* Area/Region Shortcode */
 if ( ! function_exists( 'cpo_shortcode_area' ) ) {
 	function cpo_shortcode_area( $atts, $content = null ) {
-		wp_enqueue_script( 'ctsc-waypoints' );
-		wp_enqueue_script( 'ctsc-core' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_script( 'cpo-companion-waypoints' );
+		wp_enqueue_script( 'cpo-companion-core' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -13,8 +12,6 @@ if ( ! function_exists( 'cpo_shortcode_area' ) ) {
 				'animation' => '',
 			), $atts
 		);
-
-		wp_enqueue_script( 'ctsc_waypoints' );
 
 		$animation = '';
 		if ( '' != $attributes['animation'] ) {

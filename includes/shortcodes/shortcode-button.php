@@ -3,7 +3,6 @@
 /* Button Shortcode */
 if ( ! function_exists( 'cpo_shortcode_button' ) ) {
 	function cpo_shortcode_button( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -79,16 +78,17 @@ if ( ! function_exists( 'cpo_shortcode_button' ) ) {
 		}
 
 		//Icon and class
+		$icon = '';
 		if ( '' != $attributes['icon'] ) {
-			wp_enqueue_style( 'ctsc-fontawesome' );
+			wp_enqueue_style( 'cpo-companion-fontawesome' );
 			$element_class .= ' ctsc-button-has-icon';
 			$icon           = '<span class="ctsc-button-icon icon-' . htmlentities( $attributes['icon'] ) . '"></span> ';
 		}
 
 		//Entrance effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 

@@ -2,7 +2,6 @@
 /* Leading Paragraph Shortcode */
 if ( ! function_exists( 'cpo_shortcode_leading' ) ) {
 	function cpo_shortcode_leading( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'icon' => '',

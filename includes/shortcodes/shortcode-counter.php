@@ -3,8 +3,7 @@
 /* Counter Shortcode */
 if ( ! function_exists( 'cpo_shortcode_counter' ) ) {
 	function cpo_shortcode_counter( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-fontawesome' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_style( 'cpo-companion-fontawesome' );
 		$attributes = shortcode_atts(
 			array(
 				'title'     => '',
@@ -37,8 +36,8 @@ if ( ! function_exists( 'cpo_shortcode_counter' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 

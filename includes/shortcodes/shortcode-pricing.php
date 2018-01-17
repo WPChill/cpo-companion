@@ -3,7 +3,6 @@
 /* Pricing Item Shortcode */
 if ( ! function_exists( 'cpo_shortcode_pricing' ) ) {
 	function cpo_shortcode_pricing( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'type'        => 'none',
@@ -29,8 +28,8 @@ if ( ! function_exists( 'cpo_shortcode_pricing' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
@@ -44,26 +43,26 @@ if ( ! function_exists( 'cpo_shortcode_pricing' ) ) {
 		$output .= '<div class="ctsc-pricing ' . esc_attr( $element_type ) . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
 
 		//title
-		if ( '' != $title ) {
+		if ( '' != $attributes['title'] ) {
 			$output .= '<div class="ctsc-pricing-title"' . esc_attr( $title_styling ) . '>';
-			$output .= esc_html( $title );
-			if ( '' != $subtitle ) {
-				$output .= '<div class="ctsc-pricing-subtitle">' . esc_html( $subtitle ) . '</div>';
+			$output .= esc_html( $attributes['title'] );
+			if ( '' != $attributes['subtitle'] ) {
+				$output .= '<div class="ctsc-pricing-subtitle">' . esc_html( $attributes['subtitle'] ) . '</div>';
 			}
 			$output .= '</div>';
 		}
 
 		//Price
-		if ( '' != $price ) {
+		if ( '' != $attributes['price'] ) {
 			$output .= '<div class="ctsc-pricing-price">';
-			if ( '' != $before ) {
+			if ( '' != $attributes['before'] ) {
 				$output .= '<span class="ctsc-pricing-before">' . esc_attr( $attributes['before'] ) . '</span>';
 			}
 			$output .= '<span class="ctsc-pricing-price-value">' . esc_attr( $attributes['price'] ) . '</span>';
-			if ( '' != $after ) {
+			if ( '' != $attributes['after'] ) {
 				$output .= '<span class="ctsc-pricing-after">' . esc_attr( $attributes['after'] ) . '</span>';
 			}
-			if ( '' != $description ) {
+			if ( '' != $attributes['description'] ) {
 				$output .= '<span class="ctsc-pricing-description">' . esc_html( $attributes['description'] ) . '</span>';
 			}
 			$output .= '</div>';

@@ -3,7 +3,6 @@
 /* Dropcap Shortcode */
 if ( ! function_exists( 'cpo_shortcode_dropcap' ) ) {
 	function cpo_shortcode_dropcap( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'style' => '',

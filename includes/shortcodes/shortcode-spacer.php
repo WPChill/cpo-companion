@@ -3,7 +3,6 @@
 /* Spacer Shortcode */
 if ( ! function_exists( 'cpo_shortcode_spacer' ) ) {
 	function cpo_shortcode_spacer( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 
 		$attributes = shortcode_atts(
 			array(

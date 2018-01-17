@@ -3,7 +3,6 @@
 /* Button Shortcode */
 if ( ! function_exists( 'cpo_shortcode_login' ) ) {
 	function cpo_shortcode_login( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'redirect'  => '',
@@ -24,8 +23,8 @@ if ( ! function_exists( 'cpo_shortcode_login' ) ) {
 
 		//Entrance effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 

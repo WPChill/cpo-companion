@@ -3,7 +3,6 @@
 /* Button Shortcode */
 if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 	function cpo_shortcode_register( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'redirect'  => '',
@@ -25,8 +24,8 @@ if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 
 		//Entrance effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
@@ -39,7 +38,7 @@ if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 			if ( isset( $_POST['ctsc-register-submit'] ) ) {
 				$error_message = isset( $_POST['ctsc-register-error'] ) ? esc_html( $_POST['ctsc-register-error'] ) : false;
 				if ( $error_message ) {
-					wp_enqueue_style( 'ctsc-fontawesome' );
+					wp_enqueue_style( 'cpo-companion-fontawesome' );
 					$output .= '<div class="ctsc-message ctsc-message-error">' . esc_html( $error_message ) . '</div>';
 				}
 			}

@@ -4,8 +4,7 @@
 if ( ! function_exists( 'cpo_shortcode_tablist' ) ) {
 	function cpo_shortcode_tablist( $atts, $content = null ) {
 		//Enqueue necessary scripts
-		wp_enqueue_script( 'ctsc-toggles' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_script( 'cpo-companion-toggles' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -45,7 +44,6 @@ if ( ! function_exists( 'cpo_shortcode_tablist' ) ) {
 /* Tab Shortcode */
 if ( ! function_exists( 'cpo_shortcode_tab' ) ) {
 	function cpo_shortcode_tab( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'title' => '(No Title)',

@@ -3,8 +3,7 @@
 /* Google Map Shortcode */
 if ( ! function_exists( 'cpo_shortcode_map' ) ) {
 	function cpo_shortcode_map( $atts, $content = null ) {
-		wp_enqueue_script( 'ctsc-core' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
+		wp_enqueue_script( 'cpo-companion-core' );
 		$attributes = shortcode_atts(
 			array(
 				'color'     => '',
@@ -24,8 +23,7 @@ if ( ! function_exists( 'cpo_shortcode_map' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 

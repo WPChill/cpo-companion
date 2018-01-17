@@ -3,7 +3,6 @@
 /* focus Shortcode */
 if ( ! function_exists( 'cpo_shortcode_focus' ) ) {
 	function cpo_shortcode_focus( $atts, $content = null ) {
-		wp_enqueue_style( 'ctsc-shortcodes' );
 		$attributes = shortcode_atts(
 			array(
 				'style'      => '',
