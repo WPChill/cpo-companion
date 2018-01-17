@@ -98,7 +98,7 @@ class CPO_Widget_Tweets extends WP_Widget {
 			$output .= 'Impossible to retrieve tweets. Try again later.';
 		}
 		echo $output;
-		echo $args[ 'after_widget' ];
+		echo $args['after_widget'];
 	}
 
 	function update( $new_instance, $old_instance ) {

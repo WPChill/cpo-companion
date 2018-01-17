@@ -1,5 +1,5 @@
 === CPO Companion ===
-Contributors: cpothemes
+Contributors: giucu91, cpothemes
 Tags: portfolio, features, slider, testimonials, clients, team, team members, services, recent, recent posts, author, author profile, author badge, banner, ad, advertising, twitter, tweet, social, icons, social profile, flickr, badge, image, latest, items, widget, sidebar, button, counter, register, message, shortcode, share, gallery, slideshow, accordion, toggle, content, short code, tooltip, jquery, spoiler, links, list, custom, leading, notice, icon, touch, icons, team, testimonial, bar, progress, feed, portfolio, shortcodes, map, google map, animation, css3, transition, pricing, pricing table
 Requires at least: 3.8
 Tested up to: 4.9.1

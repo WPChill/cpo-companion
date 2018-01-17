@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CPO Companion
-Description: Creates Post Types, Shortcodes and Widgets in order to create a powerfull business website.
+Description: Creates Post Types, Shortcodes and Widgets in order to create a powerful business website.
 Author: CPOThemes
 Version: 1.0
 Author URI: http://www.cpothemes.com
