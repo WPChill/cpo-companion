@@ -164,12 +164,11 @@ class CPO_Widget_Tweets extends WP_Widget {
 	}
 
 	private function _is_curl_installed() {
-	    if  (in_array  ('curl', get_loaded_extensions())) {
-	        return true;
-	    }
-	    else {
-	        return false;
-	    }
+		if ( in_array( 'curl', get_loaded_extensions() ) ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
