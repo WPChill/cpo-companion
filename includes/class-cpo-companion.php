@@ -8,12 +8,27 @@ class CPO_Companion {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		add_action( 'admin_init', array( $this, 'test' ) );
+
+	}
+	public function test() {
+		$args = array( 'options' => array( 'import_content' ) );
+			// CPO_Companion_Import_Data::import_demo( $args );
+
+		// $http = new WP_Http();
+		// $file = '';
+		// // $request = wp_remote_get( 'https://mk0cpothemesdemokfq4.kinstacdn.com/wp-content/uploads/sites/38/2012/04/StockSnap_BCLRC8333.jpg' );
+		// $request = wp_get_http( 'https://mk0cpothemesdemokfq4.kinstacdn.com/wp-content/uploads/sites/38/2012/04/StockSnap_BCLRC8333.jpg', $file );
+
+		// print_r( $request );
+		// print_r( $file );
 	}
 
 	private function load_dependencies() {
 
 		if ( is_admin() ) {
 			require_once CPO_COMPANION_PATH . 'includes/class-cpo-settings-page.php';
+			require_once CPO_COMPANION_PATH . 'includes/class-cpo-companion-import-data.php';
 		}
 
 		require_once CPO_COMPANION_PATH . 'includes/class-cpo-custom-posts-types.php';
@@ -58,7 +73,7 @@ class CPO_Companion {
 
 	public function front_styles() {
 
-		wp_enqueue_style( 'cpo-companion-fontawesome', CPO_COMPANION_ASSETS . 'css/fontawesome.css' );
+		wp_enqueue_style( 'fontawesome', CPO_COMPANION_ASSETS . 'css/fontawesome.css' );
 		wp_enqueue_style( 'cpo-companion-style', CPO_COMPANION_ASSETS . 'css/style.css' );
 
 		wp_register_script( 'cpo-companion-core', CPO_COMPANION_ASSETS . 'js/core.js', array( 'jquery' ), false, true );

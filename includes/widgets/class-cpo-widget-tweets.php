@@ -12,7 +12,7 @@ class CPO_Widget_Tweets extends WP_Widget {
 	}
 
 	function widget( $args, $instance ) {
-		$widget_id = str_replace( '-', '_', $widget_id );
+		$widget_id = str_replace( '-', '_', $args['widget_id'] );
 		$title     = apply_filters( 'widget_title', $instance['title'] );
 		$username  = strip_tags( $instance['username'] );
 		$number    = $instance['number'];
@@ -29,6 +29,10 @@ class CPO_Widget_Tweets extends WP_Widget {
 		$access_secret   = $instance['access_secret'];
 
 		if ( '' == $username || '' == $consumer_key || '' == $consumer_secret || '' == $access_key || '' == $access_secret ) {
+			return;
+		}
+
+		if ( ! $this->_is_curl_installed() ) {
 			return;
 		}
 
@@ -158,4 +162,14 @@ class CPO_Widget_Tweets extends WP_Widget {
 		</p>
 	<?php
 	}
+
+	private function _is_curl_installed() {
+	    if  (in_array  ('curl', get_loaded_extensions())) {
+	        return true;
+	    }
+	    else {
+	        return false;
+	    }
+	}
+
 }

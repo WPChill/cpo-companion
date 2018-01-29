@@ -29,10 +29,10 @@ class CPO_Custom_Posts_Types {
 			case 'ctct-portfolio-tags':
 				echo get_the_term_list( $post->ID, 'cpo_portfolio_tag', '', ', ', '' );
 				break;
-			case 'ctct-service-cats':
+			case 'cpo-service-cats':
 				echo get_the_term_list( $post->ID, 'cpo_service_category', '', ', ', '' );
 				break;
-			case 'ctct-service-tags':
+			case 'cpo-service-tags':
 				echo get_the_term_list( $post->ID, 'cpo_service_tag', '', ', ', '' );
 				break;
 			default:
