@@ -29,7 +29,7 @@ class CPO_Widget_Social extends WP_Widget {
 		if ( '' != $title ) {
 			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
 		} ?>
-		<div class="ctwg-social" id="<?php echo $widget_id; ?>">
+		<div class="ctwg-social" >
 			<?php if ( '' != $page_rss ) : ?>
 			<a class="ctwg-social-link ctwg-social-rss" href="<?php echo esc_url( $page_rss ); ?>" title="RSS">
 				<span class="ctwg-social-icon"></span>

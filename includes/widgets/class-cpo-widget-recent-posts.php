@@ -52,7 +52,7 @@ class CPO_Widget_Recent_Posts extends WP_Widget {
 				echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
 			} ?>
 
-		<div class="ctwg-recent" id="<?php echo esc_attr( $widget_id ); ?>">
+		<div class="ctwg-recent" >
 			<?php
 			while ( $recent_posts->have_posts() ) :
 				$recent_posts->the_post();
