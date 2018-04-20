@@ -65,7 +65,7 @@ if ( ! function_exists( 'cpo_shortcode_button' ) ) {
 
 		//Text color
 		if ( '' != $attributes['color'] ) {
-			$element_style .= ' color:' . $attributes['color'] . ';';
+			$element_style .= ' color:"' . $attributes['color'] . '";';
 		}
 
 		//Border style
@@ -74,7 +74,7 @@ if ( ! function_exists( 'cpo_shortcode_button' ) ) {
 		}
 
 		if ( '' != $element_style || '' != $element_background ) {
-			$element_attributes .= ' style="' . $element_style . $element_background . '"';
+			$element_attributes .= ' style="' . $element_background .'"';
 		}
 
 		//Icon and class
