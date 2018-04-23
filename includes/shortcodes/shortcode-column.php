@@ -9,7 +9,7 @@ if ( ! function_exists( 'cpo_shortcode_columns' ) ) {
 				'number' => '2',
 			), $atts
 		);
-		return '<div class="ctsc-columns ctsc-col' . absint( $number ) . '">' . wp_kses_post( wp_kses_post( cpo_do_shortcode( $content ) ) ) . '<div class="ctsc-col-divide"></div></div>';
+		return '<div class="ctsc-columns ctsc-col' . absint( $number ) . '">' . wp_kses_post( cpo_do_shortcode( $content ) ) . '<div class="ctsc-col-divide"></div></div>';
 	}
 	add_shortcode( cpo_get_shortcode_prefix() . 'columns', 'cpo_shortcode_columns' );
 }

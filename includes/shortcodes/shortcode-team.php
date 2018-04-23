@@ -43,7 +43,7 @@ if ( ! function_exists( 'cpo_shortcode_team' ) ) {
 			$element_class .= ' ctsc-team-noimage';
 		}
 
-		$output = '<div class="ctsc-team ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output = '<div class="ctsc-team ' . esc_attr( $element_class ) . '"' . $element_id . '>';
 		if ( '' != $attributes['image'] ) {
 			$output .= '<div class="ctsc-team-image">';
 			$output .= '<img src="' . esc_url( cpo_image_url( $attributes['image'] ) ) . '">';

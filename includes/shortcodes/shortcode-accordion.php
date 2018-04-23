@@ -5,7 +5,6 @@ if ( ! function_exists( 'cpo_shortcode_accordion' ) ) {
 	function cpo_shortcode_accordion( $atts, $content = null ) {
 		//Enqueue necessary scripts
 		wp_enqueue_script( 'cpo-companion-toggles' );
-		wp_enqueue_style( 'cpo-companion-fontawesome' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -47,9 +46,9 @@ if ( ! function_exists( 'cpo_shortcode_accordion' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 
-		$output  = '<div class="ctsc-accordion ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . esc_attr( $element_group ) . '>';
+		$output  = '<div class="ctsc-accordion ' . esc_attr( $element_class ) . '"' . $element_id . $element_group . '>';
 		$output .= '<h4 class="ctsc-accordion-title">' . $element_icon . esc_html( $attributes['title'] ) . '</h4>';
-		$output .= '<div class="ctsc-accordion-content"' . esc_attr( $element_display ) . '>' . wp_kses_post( cpo_do_shortcode( $content ) ) . '</div>';
+		$output .= '<div class="ctsc-accordion-content"' . $element_display . '>' . wp_kses_post( cpo_do_shortcode( $content ) ) . '</div>';
 		$output .= '</div>';
 
 		return $output;

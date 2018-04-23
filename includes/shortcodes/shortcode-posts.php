@@ -76,7 +76,7 @@ if ( ! function_exists( 'cpo_shortcode_posts' ) ) {
 			}
 
 			$item_count = 0;
-			$output     = '<div class="ctsc-postlist ctsc-postlist-' . esc_attr( $attributes['style'] ) . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+			$output     = '<div class="ctsc-postlist ctsc-postlist-' . esc_attr( $attributes['style'] ) . esc_attr( $element_class ) . '"' . $element_id . '>';
 			while ( $query->have_posts() ) :
 				$query->the_post();
 				if ( 0 == $item_count % $columns && 0 != $item_count ) {

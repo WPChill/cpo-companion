@@ -29,7 +29,7 @@ if ( ! function_exists( 'cpo_shortcode_login' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<div class="ctsc-login"' . esc_attr( $element_id ) . '>';
+		$output .= '<div class="ctsc-login"' . $element_id . '>';
 
 		if ( ! is_user_logged_in() ) {
 			$args = array(

@@ -48,7 +48,7 @@ if ( ! function_exists( 'cpo_shortcode_focus' ) ) {
 
 		$element_styling = ' style="' . $element_background . '"';
 
-		$output  = '<div class="ctsc-focus' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . esc_attr( $element_styling ) . '>';
+		$output  = '<div class="ctsc-focus' . esc_attr( $element_class ) . '"' . $element_id . $element_styling . '>';
 		$output .= wp_kses_post( cpo_do_shortcode( $content ) );
 		$output .= '</div>';
 		return $output;

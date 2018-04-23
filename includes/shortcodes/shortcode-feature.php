@@ -70,12 +70,12 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 
 		$element_icon_style = ' style="' . $element_background . $element_color . $element_border . '"';
 
-		$output = '<div class="ctsc-feature ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output = '<div class="ctsc-feature ' . esc_attr( $element_class ) . '"' . $element_id . '>';
 		if ( '' != $attributes['image'] ) {
 			$output .= '<div class="ctsc-feature-image"><img src="' . esc_url( $element_image ) . '"></div>';
 		} elseif ( '' != $attributes['icon'] ) {
 			wp_enqueue_style( 'style_fontawesome' );
-			$output .= '<div class="ctsc-feature-icon"' . esc_attr( $element_icon_style ) . '><span class="icon-' . esc_attr( $attributes['icon'] ) . '"></span></div>';
+			$output .= '<div class="ctsc-feature-icon"' . $element_icon_style . '><span class="icon-' . esc_attr( $attributes['icon'] ) . '"></span></div>';
 		}
 		$output .= '<div class="ctsc-feature-body">';
 		$output .= '<h4 class="ctsc-feature-title">';
