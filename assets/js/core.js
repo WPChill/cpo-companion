@@ -3,7 +3,7 @@ jQuery( document ).ready( function() {
   jQuery( '.ctsc-map' ).each( function() {
     var data = jQuery( this ).data(), // Get the data from this element
         options = { // Create map options object
-          center: {lat: data.lat, lng: data.lng},
+          center: { lat: data.lat, lng: data.lng },
           disableDefaultUI: data.controls || false,
           zoom: data.zoom || 15,
           mapTypeId: 'roadmap'

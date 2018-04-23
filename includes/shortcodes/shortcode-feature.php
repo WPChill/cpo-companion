@@ -26,7 +26,7 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 		);
 
 		//Set values
-		$element_class     = ' ctsc-feature-' . trim( strip_tags( $attributes['size'] ) );
+		$element_class      = ' ctsc-feature-' . trim( strip_tags( $attributes['size'] ) );
 		$element_class     .= ' ctsc-feature-' . $attributes['style'];
 		$element_class     .= ' ' . $attributes['class'];
 		$element_image      = '';

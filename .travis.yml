@@ -51,8 +51,3 @@ notifications:
 cache:
   directories:
   - node_modules
-
-after_success: curl -L https://raw.github.com/cristianraiber/travis-deployment/deploy.sh | bash
-env:
-  global:
-     - SVN_REPO: https://plugins.svn.wordpress.org/wp-push-notification/
