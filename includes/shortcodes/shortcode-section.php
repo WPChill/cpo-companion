@@ -65,7 +65,7 @@ if ( ! function_exists( 'cpo_shortcode_section' ) ) {
 
 		//Output section
 		$output  = '';
-		$output .= '<div class="ctsc-section ' . esc_attr( $element_class ) . '" ' . esc_attr( $element_style ) . '>';
+		$output .= '<div class="ctsc-section ' . esc_attr( $element_class ) . '" ' . $element_style . '>';
 		//Section output
 		if ( '' != $attributes['video'] ) {
 			$output .= '<div class="ctsc-section-video">';

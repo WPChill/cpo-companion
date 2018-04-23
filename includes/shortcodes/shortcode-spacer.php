@@ -19,7 +19,7 @@ if ( ! function_exists( 'cpo_shortcode_spacer' ) ) {
 
 		$element_style = ' style="height:' . absint( $element_height ) . 'px"';
 
-		$output = '<div class="ctsc-spacer ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . esc_attr( $element_style ) . '></div>';
+		$output = '<div class="ctsc-spacer ' . esc_attr( $element_class ) . '"' . $element_id . $element_style . '></div>';
 		return $output;
 	}
 	add_shortcode( cpo_get_shortcode_prefix() . 'spacer', 'cpo_shortcode_spacer' );

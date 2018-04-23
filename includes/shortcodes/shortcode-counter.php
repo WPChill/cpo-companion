@@ -42,9 +42,9 @@ if ( ! function_exists( 'cpo_shortcode_counter' ) ) {
 		}
 
 		//Element Styling
-		$output = '<div class="ctsc-counter' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output = '<div class="ctsc-counter' . esc_attr( $element_class ) . '"' . $element_id . '>';
 		if ( '' != $attributes['icon'] ) {
-			$output .= '<div class="ctsc-counter-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . esc_attr( $element_color ) . '></div>';
+			$output .= '<div class="ctsc-counter-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . $element_color . '></div>';
 		}
 		$output .= '<div class="ctsc-counter-body">';
 		$output .= '<div class="ctsc-counter-number">' . absint( $attributes['number'] ) . '</div>';

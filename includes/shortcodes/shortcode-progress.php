@@ -53,7 +53,7 @@ if ( ! function_exists( 'cpo_shortcode_bar' ) ) {
 
 		//Text color
 		if ( '' != $attributes['color'] ) {
-			$element_color = ' color:' . $attributes['color'] . ';';
+			$element_color = ' color:' . esc_attr( $attributes['color'] ) . ';';
 		}
 
 		//Entrace effects and delay
@@ -76,12 +76,12 @@ if ( ! function_exists( 'cpo_shortcode_bar' ) ) {
 			$icon = '<span class="bar-icon icon-' . htmlentities( $attributes['icon'] ) . '"></span> ';
 		}
 
-		$element_style = ' style="' . esc_attr( $element_color ) . '"';
-		$bar_style     = ' style="' . esc_attr( $element_background ) . esc_attr( $element_color ) . '"';
+		$element_style = ' style="' . $element_color . '"';
+		$bar_style     = ' style="' . $element_background . $element_color . '"';
 
 		$output  = '';
-		$output .= '<div class="ctsc-progress' . esc_attr( $element_direction ) . esc_attr( $element_size ) . ' ' . esc_attr( $element_class ) . '"' . esc_attr( $element_style ) . esc_attr( $element_id ) . '>';
-		$output .= '<div class="bar-content" data-value="' . esc_attr( absint( $value ) ) . '"' . esc_attr( $bar_style ) . '>';
+		$output .= '<div class="ctsc-progress' . esc_attr( $element_direction ) . esc_attr( $element_size ) . ' ' . esc_attr( $element_class ) . '"' . $element_style . $element_id . '>';
+		$output .= '<div class="bar-content" data-value="' . esc_attr( absint( $value ) ) . '"' . $bar_style . '>';
 		if ( '' != $attributes['title'] ) {
 			$output .= '<div class="bar-title">' . $icon . ' ' . esc_html( $attributes['title'] ) . '</div>';
 		}

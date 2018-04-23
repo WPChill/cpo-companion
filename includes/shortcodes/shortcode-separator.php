@@ -39,10 +39,10 @@ if ( ! function_exists( 'cpo_shortcode_separator' ) ) {
 			$element_class .= ' ctsc-separator-has-icon';
 		}
 
-		$output  = '<div class="ctsc-separator' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output  = '<div class="ctsc-separator' . esc_attr( $element_class ) . '"' . $element_id . '>';
 		$output .= '<div class="ctsc-separator-line"></div>';
 		if ( '' != $attributes['icon'] ) {
-			$output .= '<div class="ctsc-separator-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . esc_attr( $icon_styling ) . '></div>';
+			$output .= '<div class="ctsc-separator-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . $icon_styling . '></div>';
 		}
 		if ( '' != $attributes['top'] ) {
 			$output .= '<a class="ctsc-separator-top ctsc-back-top" href="#top" rel="top">' . esc_html( $attributes['top'] ) . '</a>';

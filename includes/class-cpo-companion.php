@@ -8,20 +8,6 @@ class CPO_Companion {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
-		add_action( 'admin_init', array( $this, 'test' ) );
-
-	}
-	public function test() {
-		$args = array( 'options' => array( 'import_content' ) );
-			// CPO_Companion_Import_Data::import_demo( $args );
-
-		// $http = new WP_Http();
-		// $file = '';
-		// // $request = wp_remote_get( 'https://mk0cpothemesdemokfq4.kinstacdn.com/wp-content/uploads/sites/38/2012/04/StockSnap_BCLRC8333.jpg' );
-		// $request = wp_get_http( 'https://mk0cpothemesdemokfq4.kinstacdn.com/wp-content/uploads/sites/38/2012/04/StockSnap_BCLRC8333.jpg', $file );
-
-		// print_r( $request );
-		// print_r( $file );
 	}
 
 	private function load_dependencies() {
@@ -73,10 +59,13 @@ class CPO_Companion {
 
 	public function front_styles() {
 
+		$api_key = cpo_get_option( 'shortcode_integration_gmap', 'ctsc_settings' );
+
 		wp_enqueue_style( 'fontawesome', CPO_COMPANION_ASSETS . 'css/fontawesome.css' );
 		wp_enqueue_style( 'cpo-companion-style', CPO_COMPANION_ASSETS . 'css/style.css' );
 
 		wp_register_script( 'cpo-companion-core', CPO_COMPANION_ASSETS . 'js/core.js', array( 'jquery' ), false, true );
+		wp_register_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key, false, false, true );
 		wp_register_script( 'cpo-companion-waypoints', CPO_COMPANION_ASSETS . 'js/jquery-waypoints.js', array( 'jquery' ) );
 		wp_register_script( 'cpo-companion-toggles', CPO_COMPANION_ASSETS . 'js/shortcodes-toggles.js', array( 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-tabs' ) );
 		wp_register_script( 'cpotheme-cycle', CPO_COMPANION_ASSETS . 'js/jquery-cycle2.js', array( 'jquery' ), false, true );

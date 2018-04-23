@@ -56,11 +56,10 @@ if ( ! function_exists( 'cpo_shortcode_slideshow' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
-		$slideshow_style = ' style="' . esc_attr( $element_background ) . esc_attr( $element_padding ) . '"';
-		$slides_style    = ' style="' . '"';
+		$slideshow_style = ' style="' . $element_background . $element_padding . '"';
 
-		$output  = '<div class="ctsc-slideshow ' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . esc_attr( $slideshow_style ) . '>';
-		$output .= '<div class="ctsc-slideshow-slides cycle-slideshow" ' . esc_attr( $slides_style ) . ' data-cycle-slides=".ctsc-slideshow-slide" data-cycle-prev=".ctsc-slideshow-prev" data-cycle-next=".ctsc-slideshow-next" data-cycle-pager=".ctsc-slideshow-pages" ' . esc_attr( $element_effect ) . esc_attr( $element_speed ) . esc_attr( $element_timeout ) . '>';
+		$output  = '<div class="ctsc-slideshow ' . esc_attr( $element_class ) . '"' . $element_id . $slideshow_style . '>';
+		$output .= '<div class="ctsc-slideshow-slides cycle-slideshow" data-cycle-slides=".ctsc-slideshow-slide" data-cycle-prev=".ctsc-slideshow-prev" data-cycle-next=".ctsc-slideshow-next" data-cycle-pager=".ctsc-slideshow-pages" ' . $element_effect . $element_speed . $element_timeout . '>';
 		$output .= wp_kses_post( cpo_do_shortcode( $content ) );
 		$output .= '</div>';
 		if ( 'none' != $attributes['navigation'] ) {

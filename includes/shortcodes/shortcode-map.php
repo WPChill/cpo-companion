@@ -27,8 +27,8 @@ if ( ! function_exists( 'cpo_shortcode_map' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
-		wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false, true );
-		$output = '<div class="ctsc-map ' . esc_attr( $element_class ) . '" ' . esc_attr( $element_id ) . ' data-lat="' . esc_attr( $attributes['latitude'] ) . '" data-lng="' . esc_attr( $attributes['longitude'] ) . '" data-color="' . esc_attr( $attributes['color'] ) . '" style="height:' . absint( $attributes['height'] ) . 'px"></div>';
+		wp_enqueue_script( 'google-maps' );
+		$output = '<div class="ctsc-map ' . esc_attr( $element_class ) . '" ' . $element_id . ' data-lat="' . esc_attr( $attributes['latitude'] ) . '" data-lng="' . esc_attr( $attributes['longitude'] ) . '" data-color="' . esc_attr( $attributes['color'] ) . '" style="height:' . absint( $attributes['height'] ) . 'px"></div>';
 		return $output;
 	}
 	add_shortcode( cpo_get_shortcode_prefix() . 'map', 'cpo_shortcode_map' );

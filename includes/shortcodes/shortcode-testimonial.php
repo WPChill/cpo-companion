@@ -36,7 +36,7 @@ if ( ! function_exists( 'cpo_shortcode_testimonial' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
-		$output  = '<div class="ctsc-testimonial' . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output  = '<div class="ctsc-testimonial' . esc_attr( $element_class ) . '"' . $element_id . '>';
 		$output .= '<div class="ctsc-testimonial-content">';
 		$output .= wp_kses_post( $content );
 		$output .= '</div>';

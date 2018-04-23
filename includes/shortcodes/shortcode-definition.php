@@ -23,7 +23,7 @@ if ( ! function_exists( 'cpo_shortcode_definition' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 
-		$output  = '<dl class="ctsc-definition ' . esc_attr( $attributes['class'] ) . '"' . esc_attr( $element_id ) . '>';
+		$output  = '<dl class="ctsc-definition ' . esc_attr( $attributes['class'] ) . '"' . $element_id . '>';
 		$output .= '<dt class="ctsc-definition-term">' . esc_html( $title ) . '</dt>';
 		$output .= '<dd class="ctsc-definition-description">' . wp_kses_post( $content ) . '</dd>';
 		$output .= '</dl>';

@@ -24,7 +24,7 @@ if ( ! function_exists( 'cpo_shortcode_area' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<div class="ctsc-animation ctsc-animation' . esc_attr( $animation ) . '"' . esc_attr( $delay ) . '>';
+		$output .= '<div class="ctsc-animation ctsc-animation' . esc_attr( $animation ) . '"' . $delay . '>';
 		$output .= wp_kses_post( cpo_do_shortcode( $content ) );
 		$output .= '</div>';
 		return $output;
