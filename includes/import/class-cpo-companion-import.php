@@ -30,10 +30,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		var $featured_images   = array();
 
 		/**
-	 * The main controller for the actual import stage.
-	 *
-	 * @param string $file Path to the WXR file for importing
-	 */
+		 * The main controller for the actual import stage.
+		 *
+		 * @param string $file Path to the WXR file for importing
+		 */
 		function import( $file ) {
 			add_filter( 'import_post_meta_key', array( $this, 'is_valid_meta_key' ) );
 			add_filter( 'http_request_timeout', array( &$this, 'bump_request_timeout' ) );
@@ -58,10 +58,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Parses the WXR file and prepares us for the task of processing parsed data
-	 *
-	 * @param string $file Path to the WXR file for importing
-	 */
+		 * Parses the WXR file and prepares us for the task of processing parsed data
+		 *
+		 * @param string $file Path to the WXR file for importing
+		 */
 		function import_start( $file ) {
 			if ( ! is_file( $file ) ) {
 				return;
@@ -88,8 +88,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Performs post-import cleanup of files and the cache
-	 */
+		 * Performs post-import cleanup of files and the cache
+		 */
 		function import_end() {
 			wp_import_cleanup( $this->id );
 
@@ -106,13 +106,13 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Retrieve authors from parsed WXR data
-	 *
-	 * Uses the provided author information from WXR 1.1 files
-	 * or extracts info from each post for WXR 1.0 files
-	 *
-	 * @param array $import_data Data returned by a WXR parser
-	 */
+		 * Retrieve authors from parsed WXR data
+		 *
+		 * Uses the provided author information from WXR 1.1 files
+		 * or extracts info from each post for WXR 1.0 files
+		 *
+		 * @param array $import_data Data returned by a WXR parser
+		 */
 		function get_authors_from_import( $import_data ) {
 			if ( ! empty( $import_data['authors'] ) ) {
 				$this->authors = $import_data['authors'];
@@ -135,10 +135,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Map old author logins to local user IDs based on decisions made
-	 * in import options form. Can map to an existing user, create a new user
-	 * or falls back to the current user in case of error with either of the previous
-	 */
+		 * Map old author logins to local user IDs based on decisions made
+		 * in import options form. Can map to an existing user, create a new user
+		 * or falls back to the current user in case of error with either of the previous
+		 */
 		function get_author_mapping() {
 			if ( ! isset( $_POST['imported_authors'] ) ) {
 				return;
@@ -162,7 +162,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 				} elseif ( $create_users ) {
 					if ( ! empty( $_POST['user_new'][ $i ] ) ) {
 						$user_id = wp_create_user( $_POST['user_new'][ $i ], wp_generate_password() );
-					} elseif ( $this->version != '1.0' ) {
+					} elseif ( '1.0' != $this->version ) {
 						$user_data = array(
 							'user_login'   => $old_login,
 							'user_pass'    => wp_generate_password(),
@@ -193,10 +193,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Create new categories based on import information
-	 *
-	 * Doesn't create a new category if its slug already exists
-	 */
+		 * Create new categories based on import information
+		 *
+		 * Doesn't create a new category if its slug already exists
+		 */
 		function process_categories() {
 			$this->categories = apply_filters( 'wp_import_categories', $this->categories );
 
@@ -233,7 +233,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 						$this->processed_terms[ intval( $cat['term_id'] ) ] = $id;
 					}
 				} else {
-						continue;
+					continue;
 				}
 
 				$this->process_termmeta( $cat, $id['term_id'] );
@@ -243,10 +243,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Create new post tags based on import information
-	 *
-	 * Doesn't create a tag if its slug already exists
-	 */
+		 * Create new post tags based on import information
+		 *
+		 * Doesn't create a tag if its slug already exists
+		 */
 		function process_tags() {
 			$this->tags = apply_filters( 'wp_import_tags', $this->tags );
 
@@ -290,10 +290,10 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Create new terms based on import information
-	 *
-	 * Doesn't create a term its slug already exists
-	 */
+		 * Create new terms based on import information
+		 *
+		 * Doesn't create a term its slug already exists
+		 */
 		function process_terms() {
 			$this->terms = apply_filters( 'wp_import_terms', $this->terms );
 
@@ -346,27 +346,27 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Add metadata to imported term.
-	 *
-	 * @since 0.6.2
-	 *
-	 * @param array $term    Term data from WXR import.
-	 * @param int   $term_id ID of the newly created term.
-	 */
+		 * Add metadata to imported term.
+		 *
+		 * @since 0.6.2
+		 *
+		 * @param array $term    Term data from WXR import.
+		 * @param int   $term_id ID of the newly created term.
+		 */
 		protected function process_termmeta( $term, $term_id ) {
 			if ( ! isset( $term['termmeta'] ) ) {
 				$term['termmeta'] = array();
 			}
 
 			/**
-		 * Filters the metadata attached to an imported term.
-		 *
-		 * @since 0.6.2
-		 *
-		 * @param array $termmeta Array of term meta.
-		 * @param int   $term_id  ID of the newly created term.
-		 * @param array $term     Term data from the WXR import.
-		 */
+			 * Filters the metadata attached to an imported term.
+			 *
+			 * @since 0.6.2
+			 *
+			 * @param array $termmeta Array of term meta.
+			 * @param int   $term_id  ID of the newly created term.
+			 * @param array $term     Term data from the WXR import.
+			 */
 			$term['termmeta'] = apply_filters( 'wp_import_term_meta', $term['termmeta'], $term_id, $term );
 
 			if ( empty( $term['termmeta'] ) ) {
@@ -375,14 +375,14 @@ if ( class_exists( 'WP_Importer' ) ) {
 
 			foreach ( $term['termmeta'] as $meta ) {
 				/**
-			 * Filters the meta key for an imported piece of term meta.
-			 *
-			 * @since 0.6.2
-			 *
-			 * @param string $meta_key Meta key.
-			 * @param int    $term_id  ID of the newly created term.
-			 * @param array  $term     Term data from the WXR import.
-			 */
+				 * Filters the meta key for an imported piece of term meta.
+				 *
+				 * @since 0.6.2
+				 *
+				 * @param string $meta_key Meta key.
+				 * @param int    $term_id  ID of the newly created term.
+				 * @param array  $term     Term data from the WXR import.
+				 */
 				$key = apply_filters( 'import_term_meta_key', $meta['key'], $term_id, $term );
 				if ( ! $key ) {
 					continue;
@@ -394,26 +394,26 @@ if ( class_exists( 'WP_Importer' ) ) {
 				add_term_meta( $term_id, $key, $value );
 
 				/**
-			 * Fires after term meta is imported.
-			 *
-			 * @since 0.6.2
-			 *
-			 * @param int    $term_id ID of the newly created term.
-			 * @param string $key     Meta key.
-			 * @param mixed  $value   Meta value.
-			 */
+				 * Fires after term meta is imported.
+				 *
+				 * @since 0.6.2
+				 *
+				 * @param int    $term_id ID of the newly created term.
+				 * @param string $key     Meta key.
+				 * @param mixed  $value   Meta value.
+				 */
 				do_action( 'import_term_meta', $term_id, $key, $value );
 			}
 		}
 
 		/**
-	 * Create new posts based on import information
-	 *
-	 * Posts marked as having a parent which doesn't exist will become top level items.
-	 * Doesn't create a new post if: the post type doesn't exist, the given post ID
-	 * is already noted as imported or a post with the same title and date already exists.
-	 * Note that new/updated terms, comments and meta are imported for the last of the above.
-	 */
+		 * Create new posts based on import information
+		 *
+		 * Posts marked as having a parent which doesn't exist will become top level items.
+		 * Doesn't create a new post if: the post type doesn't exist, the given post ID
+		 * is already noted as imported or a post with the same title and date already exists.
+		 * Note that new/updated terms, comments and meta are imported for the last of the above.
+		 */
 		function process_posts() {
 			$this->posts = apply_filters( 'wp_import_posts', $this->posts );
 
@@ -429,7 +429,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 					continue;
 				}
 
-				if ( $post['status'] == 'auto-draft' ) {
+				if ( 'auto-draft' == $post['status'] ) {
 					continue;
 				}
 
@@ -443,21 +443,22 @@ if ( class_exists( 'WP_Importer' ) ) {
 				$post_exists = post_exists( $post['post_title'], '', $post['post_date'] );
 
 				/**
-			* Filter ID of the existing post corresponding to post currently importing.
-			*
-			* Return 0 to force the post to be imported. Filter the ID to be something else
-			* to override which existing post is mapped to the imported post.
-			*
-			* @see post_exists()
-			* @since 0.6.2
-			*
-			* @param int   $post_exists  Post ID, or 0 if post did not exist.
-			* @param array $post         The post array to be inserted.
-			*/
+				 * Filter ID of the existing post corresponding to post currently importing.
+				 *
+				 * Return 0 to force the post to be imported. Filter the ID to be something else
+				 * to override which existing post is mapped to the imported post.
+				 *
+				 * @see   post_exists()
+				 * @since 0.6.2
+				 *
+				 * @param int   $post_exists Post ID, or 0 if post did not exist.
+				 * @param array $post        The post array to be inserted.
+				 */
 				$post_exists = apply_filters( 'wp_import_existing_post', $post_exists, $post );
 
 				if ( $post_exists && get_post_type( $post_exists ) == $post['post_type'] ) {
-					$comment_post_ID                                     = $post_id = $post_exists;
+					$comment_post_id = $post_exists;
+					$post_id         = $post_exists;
 					$this->processed_posts[ intval( $post['post_id'] ) ] = intval( $post_exists );
 				} else {
 					$post_parent = (int) $post['post_parent'];
@@ -499,7 +500,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 						'post_password'  => $post['post_password'],
 					);
 
-					$original_post_ID = $post['post_id'];
+					$original_post_id = $post['post_id'];
 					$postdata         = apply_filters( 'wp_import_post_data_processed', $postdata, $post );
 
 					$postdata = wp_slash( $postdata );
@@ -512,7 +513,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 						$postdata['upload_date'] = $post['post_date'];
 						if ( isset( $post['postmeta'] ) ) {
 							foreach ( $post['postmeta'] as $meta ) {
-								if ( $meta['key'] == '_wp_attached_file' ) {
+								if ( '_wp_attached_file' == $meta['key'] ) {
 									if ( preg_match( '%^[0-9]{4}/[0-9]{2}%', $meta['value'], $matches ) ) {
 										$postdata['upload_date'] = $matches[0];
 									}
@@ -521,17 +522,20 @@ if ( class_exists( 'WP_Importer' ) ) {
 							}
 						}
 
-						$comment_post_ID = $post_id = $this->process_attachment( $postdata, $remote_url );
+						$comment_post_id = $this->process_attachment( $postdata, $remote_url );
+						$post_id         = $comment_post_id;
 					} else {
-						$comment_post_ID = $post_id = wp_insert_post( $postdata, true );
-						do_action( 'wp_import_insert_post', $post_id, $original_post_ID, $postdata, $post );
+						$post_id         = wp_insert_post( $postdata, true );
+						$comment_post_id = $post_id;
+
+						do_action( 'wp_import_insert_post', $post_id, $original_post_id, $postdata, $post );
 					}
 
 					if ( is_wp_error( $post_id ) ) {
 						continue;
 					}
 
-					if ( $post['is_sticky'] == 1 ) {
+					if ( 1 == $post['is_sticky'] ) {
 						stick_post( $post_id );
 					}
 				}
@@ -585,7 +589,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 					$inserted_comments = array();
 					foreach ( $post['comments'] as $comment ) {
 						$comment_id                                    = $comment['comment_id'];
-						$newcomments[ $comment_id ]['comment_post_ID'] = $comment_post_ID;
+						$newcomments[ $comment_id ]['comment_post_ID'] = $comment_post_id;
 						$newcomments[ $comment_id ]['comment_author']  = $comment['comment_author'];
 						$newcomments[ $comment_id ]['comment_author_email'] = $comment['comment_author_email'];
 						$newcomments[ $comment_id ]['comment_author_IP']    = $comment['comment_author_IP'];
@@ -611,14 +615,14 @@ if ( class_exists( 'WP_Importer' ) ) {
 							}
 							$comment                   = wp_filter_comment( $comment );
 							$inserted_comments[ $key ] = wp_insert_comment( $comment );
-							do_action( 'wp_import_insert_comment', $inserted_comments[ $key ], $comment, $comment_post_ID, $post );
+							do_action( 'wp_import_insert_comment', $inserted_comments[ $key ], $comment, $comment_post_id, $post );
 
 							foreach ( $comment['commentmeta'] as $meta ) {
 								$value = maybe_unserialize( $meta['value'] );
 								add_comment_meta( $inserted_comments[ $key ], $meta['key'], $value );
 							}
 
-							$num_comments++;
+							$num_comments ++;
 						}
 					}
 					unset( $newcomments, $inserted_comments, $post['comments'] );
@@ -666,15 +670,15 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Attempt to create a new menu item from import data
-	 *
-	 * Fails for draft, orphaned menu items and those without an associated nav_menu
-	 * or an invalid nav_menu term. If the post type or term object which the menu item
-	 * represents doesn't exist then the menu item will not be imported (waits until the
-	 * end of the import to retry again before discarding).
-	 *
-	 * @param array $item Menu item details from WXR file
-	 */
+		 * Attempt to create a new menu item from import data
+		 *
+		 * Fails for draft, orphaned menu items and those without an associated nav_menu
+		 * or an invalid nav_menu term. If the post type or term object which the menu item
+		 * represents doesn't exist then the menu item will not be imported (waits until the
+		 * end of the import to retry again before discarding).
+		 *
+		 * @param array $item Menu item details from WXR file
+		 */
 		function process_menu_item( $item ) {
 			// skip draft, orphaned menu items
 			if ( 'draft' == $item['status'] ) {
@@ -715,6 +719,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 			} elseif ( 'custom' != $_menu_item_type ) {
 				// associated object is missing or not imported yet, we'll retry later
 				$this->missing_menu_items[] = $item;
+
 				return;
 			}
 
@@ -754,12 +759,13 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * If fetching attachments is enabled then attempt to create a new attachment
-	 *
-	 * @param array $post Attachment post details from WXR
-	 * @param string $url URL to fetch attachment from
-	 * @return int|WP_Error Post ID on success, WP_Error otherwise
-	 */
+		 * If fetching attachments is enabled then attempt to create a new attachment
+		 *
+		 * @param array  $post Attachment post details from WXR
+		 * @param string $url  URL to fetch attachment from
+		 *
+		 * @return int|WP_Error Post ID on success, WP_Error otherwise
+		 */
 		function process_attachment( $post, $url ) {
 			if ( ! $this->fetch_attachments ) {
 				return;
@@ -775,7 +781,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 				return $upload;
 			}
 
-			if ( $info = wp_check_filetype( $upload['file'] ) ) {
+			$info = wp_check_filetype( $upload['file'] );
+			if ( $info ) {
 				$post['post_mime_type'] = $info['type'];
 			} else {
 				return;
@@ -802,12 +809,13 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Attempt to download a remote file attachment
-	 *
-	 * @param string $url URL of item to fetch
-	 * @param array $post Attachment details
-	 * @return array|WP_Error Local file location details on success, WP_Error otherwise
-	 */
+		 * Attempt to download a remote file attachment
+		 *
+		 * @param string $url  URL of item to fetch
+		 * @param array  $post Attachment details
+		 *
+		 * @return array|WP_Error Local file location details on success, WP_Error otherwise
+		 */
 		function fetch_remote_file( $url, $post ) {
 			// extract the file name and extension from the url
 			$file_name = basename( $url );
@@ -824,12 +832,14 @@ if ( class_exists( 'WP_Importer' ) ) {
 			// request failed
 			if ( ! $headers ) {
 				@unlink( $upload['file'] );
+
 				return;
 			}
 
 			// make sure the fetch was successful
-			if ( $headers['response'] != '200' ) {
+			if ( '200' != $headers['response'] ) {
 				@unlink( $upload['file'] );
+
 				return;
 			}
 
@@ -837,17 +847,20 @@ if ( class_exists( 'WP_Importer' ) ) {
 
 			if ( isset( $headers['content-length'] ) && $filesize != $headers['content-length'] ) {
 				@unlink( $upload['file'] );
+
 				return;
 			}
 
 			if ( 0 == $filesize ) {
 				@unlink( $upload['file'] );
+
 				return;
 			}
 
 			$max_size = (int) $this->max_attachment_size();
 			if ( ! empty( $max_size ) && $filesize > $max_size ) {
 				@unlink( $upload['file'] );
+
 				return;
 			}
 
@@ -863,18 +876,19 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Attempt to associate posts and menu items with previously missing parents
-	 *
-	 * An imported post's parent may not have been imported when it was first created
-	 * so try again. Similarly for child menu items and menu items which were missing
-	 * the object (e.g. post) they represent in the menu
-	 */
+		 * Attempt to associate posts and menu items with previously missing parents
+		 *
+		 * An imported post's parent may not have been imported when it was first created
+		 * so try again. Similarly for child menu items and menu items which were missing
+		 * the object (e.g. post) they represent in the menu
+		 */
 		function backfill_parents() {
 			global $wpdb;
 
 			// find parents for post orphans
 			foreach ( $this->post_orphans as $child_id => $parent_id ) {
-				$local_child_id = $local_parent_id = false;
+				$local_child_id  = false;
+				$local_parent_id = false;
 				if ( isset( $this->processed_posts[ $child_id ] ) ) {
 					$local_child_id = $this->processed_posts[ $child_id ];
 				}
@@ -895,7 +909,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 
 			// find parents for menu item orphans
 			foreach ( $this->menu_item_orphans as $child_id => $parent_id ) {
-				$local_child_id = $local_parent_id = 0;
+				$local_child_id  = 0;
+				$local_parent_id = 0;
 				if ( isset( $this->processed_menu_items[ $child_id ] ) ) {
 					$local_child_id = $this->processed_menu_items[ $child_id ];
 				}
@@ -910,8 +925,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Use stored mapping information to update old attachment URLs
-	 */
+		 * Use stored mapping information to update old attachment URLs
+		 */
 		function backfill_attachment_urls() {
 			global $wpdb;
 			// make sure we do the longest urls first, in case one is a substring of another
@@ -926,8 +941,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Update _thumbnail_id meta to new, imported attachment IDs
-	 */
+		 * Update _thumbnail_id meta to new, imported attachment IDs
+		 */
 		function remap_featured_images() {
 			// cycle through posts that have a featured image
 			foreach ( $this->featured_images as $post_id => $value ) {
@@ -942,66 +957,71 @@ if ( class_exists( 'WP_Importer' ) ) {
 		}
 
 		/**
-	 * Parse a WXR file
-	 *
-	 * @param string $file Path to WXR file for parsing
-	 * @return array Information gathered from the WXR file
-	 */
+		 * Parse a WXR file
+		 *
+		 * @param string $file Path to WXR file for parsing
+		 *
+		 * @return array Information gathered from the WXR file
+		 */
 		function parse( $file ) {
 			$parser = new CPO_Companion_Parser();
+
 			return $parser->parse( $file );
 		}
 
 		/**
-	 * Decide if the given meta key maps to information we will want to import
-	 *
-	 * @param string $key The meta key to check
-	 * @return string|bool The key if we do want to import, false if not
-	 */
+		 * Decide if the given meta key maps to information we will want to import
+		 *
+		 * @param string $key The meta key to check
+		 *
+		 * @return string|bool The key if we do want to import, false if not
+		 */
 		function is_valid_meta_key( $key ) {
 			// skip attachment metadata since we'll regenerate it from scratch
 			// skip _edit_lock as not relevant for import
 			if ( in_array( $key, array( '_wp_attached_file', '_wp_attachment_metadata', '_edit_lock' ) ) ) {
 				return false;
 			}
+
 			return $key;
 		}
 
 		/**
-	 * Decide whether or not the importer is allowed to create users.
-	 * Default is true, can be filtered via import_allow_create_users
-	 *
-	 * @return bool True if creating users is allowed
-	 */
+		 * Decide whether or not the importer is allowed to create users.
+		 * Default is true, can be filtered via import_allow_create_users
+		 *
+		 * @return bool True if creating users is allowed
+		 */
 		function allow_create_users() {
 			return apply_filters( 'import_allow_create_users', true );
 		}
 
 		/**
-	 * Decide whether or not the importer should attempt to download attachment files.
-	 * Default is true, can be filtered via import_allow_fetch_attachments. The choice
-	 * made at the import options screen must also be true, false here hides that checkbox.
-	 *
-	 * @return bool True if downloading attachments is allowed
-	 */
+		 * Decide whether or not the importer should attempt to download attachment files.
+		 * Default is true, can be filtered via import_allow_fetch_attachments. The choice
+		 * made at the import options screen must also be true, false here hides that checkbox.
+		 *
+		 * @return bool True if downloading attachments is allowed
+		 */
 		function allow_fetch_attachments() {
 			return apply_filters( 'import_allow_fetch_attachments', true );
 		}
 
 		/**
-	 * Decide what the maximum file size for downloaded attachments is.
-	 * Default is 0 (unlimited), can be filtered via import_attachment_size_limit
-	 *
-	 * @return int Maximum attachment file size to import
-	 */
+		 * Decide what the maximum file size for downloaded attachments is.
+		 * Default is 0 (unlimited), can be filtered via import_attachment_size_limit
+		 *
+		 * @return int Maximum attachment file size to import
+		 */
 		function max_attachment_size() {
 			return apply_filters( 'import_attachment_size_limit', 0 );
 		}
 
 		/**
-	 * Added to http_request_timeout filter to force timeout at 60 seconds during import
-	 * @return int 60
-	 */
+		 * Added to http_request_timeout filter to force timeout at 60 seconds during import
+		 *
+		 * @return int 60
+		 */
 		function bump_request_timeout( $val ) {
 			return 60;
 		}

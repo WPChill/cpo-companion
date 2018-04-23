@@ -173,7 +173,7 @@ class CPO_Settings_Page {
 		$this->shortcodes_sections = apply_filters( 'ctsc_metadata_sections', $this->shortcodes_sections );
 
 		$this->shortcode_fields = array(
-			'shortcode_prefix' => array(
+			'shortcode_prefix'           => array(
 				'label'       => __( 'Shortcode Prefix', 'cpo-companion' ),
 				'description' => __( 'Specifies a prefix for all shortcodes, so that you may avoid possible conflicts when installing themes or other plugins. If using a prefix, an underscore (_) will be used as a separator.', 'cpo-companion' ),
 				'section'     => 'ctsc_shortcodes',
@@ -184,7 +184,7 @@ class CPO_Settings_Page {
 			),
 			'shortcode_integration_gmap' => array(
 				'label'       => __( 'Google Maps Api Key', 'cpo-companion' ),
-				'description' => sprintf( __( 'Before you begin using Google Map plugin, please note that All Google Maps users now required to have an API key to function. You can read more about that %s here %s or you can go and %s create an API key %s', 'cpo-companion' ), '<a href="https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html" target="_blank">', '</a>', '<a href="https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true" target="_blank">', '</a>'),
+				'description' => sprintf( __( 'Before you begin using Google Map plugin, please note that All Google Maps users now required to have an API key to function. You can read more about that %1$s here %2$s or you can go and %3$s create an API key %4$s', 'cpo-companion' ), '<a href="https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html" target="_blank">', '</a>', '<a href="https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true" target="_blank">', '</a>' ),
 				'section'     => 'ctsc_shortcodes',
 				'empty'       => true,
 				'default'     => 'ct',
