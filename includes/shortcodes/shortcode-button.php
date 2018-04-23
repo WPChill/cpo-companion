@@ -93,7 +93,7 @@ if ( ! function_exists( 'cpo_shortcode_button' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<a class="ctsc-button' . esc_attr( $element_class ) . '" href="' . esc_url( $attributes['url'] ) . '"' . esc_attr( $element_attributes ) . '>';
+		$output .= '<a class="ctsc-button' . esc_attr( $element_class ) . '" href="' . esc_url( $attributes['url'] ) . '"' . $element_attributes . '>';
 
 		//Button contents
 		$output .= '<span class="ctsc-button-content">';

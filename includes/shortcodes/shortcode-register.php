@@ -30,7 +30,7 @@ if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<div class="ctsc-register"' . esc_attr( $element_id ) . '>';
+		$output .= '<div class="ctsc-register"' . $element_id . '>';
 
 		if ( ! is_user_logged_in() ) {
 

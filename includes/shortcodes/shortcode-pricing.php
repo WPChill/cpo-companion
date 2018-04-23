@@ -40,11 +40,11 @@ if ( ! function_exists( 'cpo_shortcode_pricing' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<div class="ctsc-pricing ' . esc_attr( $element_type ) . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output .= '<div class="ctsc-pricing ' . esc_attr( $element_type ) . esc_attr( $element_class ) . '"' . $element_id . '>';
 
 		//title
 		if ( '' != $attributes['title'] ) {
-			$output .= '<div class="ctsc-pricing-title"' . esc_attr( $title_styling ) . '>';
+			$output .= '<div class="ctsc-pricing-title"' . $title_styling . '>';
 			$output .= esc_html( $attributes['title'] );
 			if ( '' != $attributes['subtitle'] ) {
 				$output .= '<div class="ctsc-pricing-subtitle">' . esc_html( $attributes['subtitle'] ) . '</div>';

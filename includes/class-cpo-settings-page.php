@@ -182,6 +182,15 @@ class CPO_Settings_Page {
 				'type'        => 'text',
 				'setting'     => 'ctsc_settings',
 			),
+			'shortcode_integration_gmap' => array(
+				'label'       => __( 'Google Maps Api Key', 'cpo-companion' ),
+				'description' => sprintf( __( 'Before you begin using Google Map plugin, please note that All Google Maps users now required to have an API key to function. You can read more about that %s here %s or you can go and %s create an API key %s', 'cpo-companion' ), '<a href="https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html" target="_blank">', '</a>', '<a href="https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true" target="_blank">', '</a>'),
+				'section'     => 'ctsc_shortcodes',
+				'empty'       => true,
+				'default'     => 'ct',
+				'type'        => 'text',
+				'setting'     => 'ctsc_settings',
+			),
 		);
 
 		$this->shortcode_fields = apply_filters( 'ctsc_metadata_settings', $this->shortcode_fields );
@@ -282,10 +291,16 @@ class CPO_Settings_Page {
 		switch ( $args['type'] ) {
 			case 'text':
 				echo '<input name="' . $args['setting'] . '[' . $args['id'] . ']" type="text" id="' . $args['id'] . '" value="' . $args['value'] . '" placeholder="' . $args['placeholder'] . '" class="' . $args['class'] . '"/>';
+				if ( isset( $args['description'] ) && '' != $args['description'] ) {
+					echo '<p class="description">' . $args['description'] . '</p>';
+				}
 				break;
 
 			case 'checkbox':
 				echo '<label for="' . $args['id'] . '"><input name="' . $args['setting'] . '[' . $args['id'] . ']" type="checkbox" value="1" id="' . $args['id'] . '" ' . checked( 1, $args['value'], false ) . '" placeholder="' . $args['placeholder'] . '" class="' . $args['class'] . '"/> ' . $args['description'] . '</label>';
+				if ( isset( $args['description'] ) && '' != $args['description'] ) {
+					echo '<p class="description">' . $args['description'] . '</p>';
+				}
 				break;
 		}
 	}

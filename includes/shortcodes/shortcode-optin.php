@@ -50,7 +50,7 @@ if ( ! function_exists( 'cpo_shortcode_optin' ) ) {
 		}
 
 		$output  = '';
-		$output .= '<form method="post" target="_blank" action="' . esc_url( $attributes['url'] ) . '" class="ctsc-optin' . esc_attr( $element_class ) . esc_attr( $element_style ) . esc_attr( $element_size ) . '" ' . esc_attr( $element_id ) . '>';
+		$output .= '<form method="post" target="_blank" action="' . esc_url( $attributes['url'] ) . '" class="ctsc-optin' . esc_attr( $element_class ) . esc_attr( $element_style ) . esc_attr( $element_size ) . '" ' . $element_id . '>';
 		$output .= '<div class="ctsc-optin-field' . esc_attr( $class_field ) . '"><input type="email" value="" name="EMAIL" placeholder="' . esc_attr( $attributes['email'] ) . '" class="ctsc-optin-email"></div>';
 		if ( '' != $attributes['attributes']['firstname'] ) {
 			$output .= '<div class="ctsc-optin-field' . esc_attr( $class_field ) . '"><input type="text" value="" placeholder="' . esc_attr( $attributes['firstname'] ) . '" name="FNAME" class="ctsc-optin-fname"></div>';

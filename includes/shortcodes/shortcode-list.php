@@ -50,9 +50,9 @@ if ( ! function_exists( 'cpo_shortcode_list' ) ) {
 
 		$icon_style = ' style="' . esc_attr( $element_background ) . esc_attr( $element_color ) . '"';
 
-		$output = '<div class="ctsc-list' . esc_attr( $element_style ) . esc_attr( $element_class ) . '"' . esc_attr( $element_id ) . '>';
+		$output = '<div class="ctsc-list' . esc_attr( $element_style ) . esc_attr( $element_class ) . '"' . $element_id . '>';
 		if ( '' != $attributes['icon'] ) {
-			$output .= '<span class="ctsc-list-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . esc_attr( $icon_style ) . '></span>';
+			$output .= '<span class="ctsc-list-icon icon-' . esc_attr( $attributes['icon'] ) . '"' . $icon_style . '></span>';
 		}
 		$output .= wp_kses_post( cpo_do_shortcode( $content ) );
 		$output .= '</div>';

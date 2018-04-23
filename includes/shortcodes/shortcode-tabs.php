@@ -24,7 +24,7 @@ if ( ! function_exists( 'cpo_shortcode_tablist' ) ) {
 		}
 		$output .= '<ul class="ctsc-tablist-nav">';
 		foreach ( $tab_titles as $tab ) {
-			$output .= '<li><a href="#ctsc-tab-content-' . esc_attr( $tab[0] ) . '">' . esc_html( $tab[0] ) . '</a></li>';
+			$output .= '<li><a href="#ctsc-tab-content-' . sanitize_title( $tab[0] ) . '">' . esc_html( $tab[0] ) . '</a></li>';
 		}
 		$output .= '</ul>';
 
@@ -54,7 +54,7 @@ if ( ! function_exists( 'cpo_shortcode_tab' ) ) {
 
 		$content = trim( $content );
 
-		return '<div id="ctsc-tab-content-' . esc_attr( $attributes['title'] ) . '" class="ctsc-tab-content">' . wp_kses_post( cpo_do_shortcode( $content ) ) . '</div>';
+		return '<div id="ctsc-tab-content-' . sanitize_title( $attributes['title'] ) . '" class="ctsc-tab-content">' . wp_kses_post( cpo_do_shortcode( $content ) ) . '</div>';
 	}
 	add_shortcode( cpo_get_shortcode_prefix() . 'tab', 'cpo_shortcode_tab' );
 }
