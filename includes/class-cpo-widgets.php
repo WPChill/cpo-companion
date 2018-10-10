@@ -6,6 +6,7 @@ class CPO_Widgets {
 
 		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-advert.php' );
 		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-flickr.php' );
+		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-instagram.php' );
 		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-recent-posts.php' );
 		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-tweets.php' );
 		require_once( CPO_COMPANION_PATH . 'includes/widgets/class-cpo-widget-social.php' );
@@ -21,6 +22,7 @@ class CPO_Widgets {
 		register_widget( 'CPO_Widget_Tweets' );
 		register_widget( 'CPO_Widget_Author' );
 		register_widget( 'CPO_Widget_Flickr' );
+		register_widget( 'CPO_Widget_Instagram' );
 		register_widget( 'CPO_Widget_Recent_Posts' );
 		register_widget( 'CPO_Widget_Social' );
 
