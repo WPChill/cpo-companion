@@ -22,7 +22,7 @@ url('../fonts/social.svg#social') format('svg'); }
 .ctwg-recent-item .ctwg-recent-image img { display:block; width:50px; height:auto; margin:0; padding:0; border-radius:2px; }
 .ctwg-recent-item .ctwg-recent-body { margin:0; }
 .ctwg-has-thumbnail .ctwg-recent-body { margin:0 0 0 65px; }
-.ctwg-recent-item .ctwg-recent-title { margin:-5px 0 0; padding:0; }
+.ctwg-recent-item .ctwg-recent-title { margin:0; padding:0; }
 .ctwg-recent-item .ctwg-recent-meta { font-size:0.8em; margin:0; }
 
 
@@ -70,12 +70,12 @@ url('../fonts/social.svg#social') format('svg'); }
 
 /* FLICKR WIDGET */
 .ctwg-flickr { overflow:hidden; }
-.ctwg-flickr img { float:left; margin:0 8px 8px 0; padding:5px; background-color:#fff; width:50px; height:50px; }
+.ctwg-flickr img { float:left; margin:0 12px 12px 0; width:50px; height:50px; border-radius:2px; }
 
 
 /* INSTAGRAM WIDGET */
 .ctwg-instagram { overflow:hidden; }
-.ctwg-instagram img { float:left; margin:0 8px 8px 0; padding:5px; background-color:#fff; width:50px; height:50px; }
+.ctwg-instagram img { float:left; margin:0 12px 12px 0; width:50px; height:50px; border-radius:2px; }
 
 
 /* AD SPACE WIDGET */
