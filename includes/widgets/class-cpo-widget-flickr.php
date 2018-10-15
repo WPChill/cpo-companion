@@ -23,32 +23,36 @@ class CPO_Widget_Flickr extends WP_Widget {
 			$number = 20;
 		}
 
+		$data = get_transient( 'cpo_widget_flickr_' . $this->id  );
+		if( $data === false ) {
+			$response = wp_remote_get( "https://api.flickr.com/services/feeds/photos_public.gne?format=php_serial&id={$user_id}" );
+			$data = unserialize( $response['body'] );
+		}
+
+		$photos = $data['items'];
+		if( ! $photos ) {
+			return;
+		}
+
+		$photos = array_slice( $photos, 0, $number ); 
+
 		echo $args['before_widget'];
 		if ( '' != $title ) {
 			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
 		} 
-
-		$data = get_transient( 'cpo_widget_flickr_' . $this->id  );
-
-		if( $data === false ) {
-			$response = wp_remote_get( 'https://api.flickr.com/services/feeds/photos_public.gne?format=php_serial&id=' . $user_id );
-			$data = unserialize( $response['body'] );
-			set_transient( 'cpo_widget_flickr_' . $this->id, $data, 12 * HOUR_IN_SECONDS );
-		}
-
-		$photos = array_slice( $data['items'], 0, $number ); 
-
 		?>
 
 		<div class="widget-content">		
 			<?php foreach ($photos as $photo): ?>
-				<a href="<?php echo esc_attr( $photo['url'] ); ?>" rel="nofollow" target="_blank">	
-					<img src="<?php echo esc_attr( $photo['t_url'] ); ?>" alt="<?php echo esc_attr( $photo['title'] ); ?>"/>
+				<a href="<?php echo esc_url( $photo['url'] ); ?>" rel="nofollow" target="_blank">	
+					<img src="<?php echo esc_url( $photo['t_url'] ); ?>" alt="<?php echo esc_attr( $photo['title'] ); ?>"/>
 				</a>
 			<?php endforeach; ?>
 		</div>
 		<?php
 		echo $args['after_widget'];
+
+		set_transient( 'cpo_widget_flickr_' . $this->id, $data, 12 * HOUR_IN_SECONDS );
 	}
 
 	function update( $new_instance, $old_instance ) {
