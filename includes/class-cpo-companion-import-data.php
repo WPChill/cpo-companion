@@ -5,14 +5,16 @@ class CPO_Companion_Import_Data {
 	public static $instance;
 	private $content_path;
 	private $widget_path;
-	private $customizer_path;
+	private $options;
+	private $option_name;
 	private $import_option;
 
 	function __construct() {
 
 		$this->content_path    = apply_filters( 'cpo_companion_content', '' );
 		$this->widget_path     = apply_filters( 'cpo_companion_widgets', '' );
-		$this->customizer_path = apply_filters( 'cpo_companion_customizer', '' );
+		$this->options         = apply_filters( 'cpo_companion_customizer_options', array() );
+		$this->option_name     = apply_filters( 'cpo_companion_customizer_option_name', '' );
 		$this->import_option   = apply_filters( 'cpo_companion_import_option', '' );
 
 	}
@@ -43,6 +45,8 @@ class CPO_Companion_Import_Data {
 		if ( '' != $this->import_option ) {
 			update_option( $this->import_option, 1 );
 		}
+
+		do_action( 'cpo_companion_import_done' );
 
 		return 'ok';
 
@@ -230,6 +234,16 @@ class CPO_Companion_Import_Data {
 				}
 			}
 		}
+
+	}
+
+	private function import_options() {
+
+		if ( ! current_user_can( 'manage_options' ) || '' === $this->option_name || ! $this->options ) {
+			return;
+		}
+
+		update_option( $this->option_name, $this->options );
 
 	}
 
