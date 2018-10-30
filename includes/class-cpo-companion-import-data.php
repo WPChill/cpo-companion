@@ -5,17 +5,18 @@ class CPO_Companion_Import_Data {
 	public static $instance;
 	private $content_path;
 	private $widget_path;
-	private $options;
-	private $option_name;
+	private $theme_settings;
+	private $theme_settings_name;
 	private $import_option;
 
 	function __construct() {
 
-		$this->content_path    = apply_filters( 'cpo_companion_content', '' );
-		$this->widget_path     = apply_filters( 'cpo_companion_widgets', '' );
-		$this->options         = apply_filters( 'cpo_companion_customizer_options', array() );
-		$this->option_name     = apply_filters( 'cpo_companion_customizer_option_name', '' );
-		$this->import_option   = apply_filters( 'cpo_companion_import_option', '' );
+		$this->content_path   = apply_filters( 'cpo_companion_content', '' );
+		$this->widget_path    = apply_filters( 'cpo_companion_widgets', '' );
+		$this->theme_settings = apply_filters( 'cpo_companion_theme_settings', array() );
+
+		$this->theme_settings_name = apply_filters( 'cpo_companion_theme_settings_name', '' );
+		$this->import_option       = apply_filters( 'cpo_companion_import_option', '' );
 
 	}
 
@@ -72,6 +73,7 @@ class CPO_Companion_Import_Data {
 		$importer = new CPO_Companion_Import();
 		$importer->import( $this->content_path );
 
+		do_action( 'cpo_companion_content_import_done' );
 	}
 
 
@@ -235,16 +237,18 @@ class CPO_Companion_Import_Data {
 			}
 		}
 
+		do_action( 'cpo_companion_widgets_import_done' );
 	}
 
 	private function import_options() {
 
-		if ( ! current_user_can( 'manage_options' ) || '' === $this->option_name || ! $this->options ) {
+		if ( ! current_user_can( 'manage_options' ) || '' === $this->theme_settings_name || ! $this->theme_settings ) {
 			return;
 		}
 
-		update_option( $this->option_name, $this->options );
+		update_option( $this->theme_settings_name, $this->theme_settings );
 
+		do_action( 'cpo_companion_settings_import_done' );
 	}
 
 }
