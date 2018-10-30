@@ -1,8 +1,8 @@
 === CPO Companion ===
-Contributors: giucu91, cpothemes
-Tags: portfolio, features, slider, testimonials, clients, team, team members, services, recent, recent posts, author, author profile, author badge, banner, ad, advertising, twitter, tweet, social, icons, social profile, flickr, badge, image, latest, items, widget, sidebar, button, counter, register, message, shortcode, share, gallery, slideshow, accordion, toggle, content, short code, tooltip, jquery, spoiler, links, list, custom, leading, notice, icon, touch, icons, team, testimonial, bar, progress, feed, portfolio, shortcodes, map, google map, animation, css3, transition, pricing, pricing table
+Contributors: machothemes
+Tags: cpo companion, shortcodes, author widget, instagram widget, flickr widget, twitter widget, custom post types, clients, sliders, team members, services, portfolios
 Requires at least: 3.8
-Tested up to: 4.9.1
+Tested up to: 4.9
 Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
