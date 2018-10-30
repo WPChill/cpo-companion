@@ -18,7 +18,7 @@ class CPO_Widget_Advert extends WP_Widget {
 		if ( '' != $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		} ?>
-		<div class="ctwg-advert" id="<?php echo $widget_id; ?>">
+		<div class="ctwg-advert" id="<?php echo $args['widget_id']; ?>">
 			<?php if ( '' == $instance['ad_code'] ) : ?>
 			<a href="<?php echo esc_url( $instance['link_url'] ); ?>">
 				<img src="<?php echo esc_url( $instance['image_url'] ); ?>" title="<?php echo esc_attr( $title ); ?>" alt="<?php echo esc_attr( $title ); ?>"/>

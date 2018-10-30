@@ -12,7 +12,7 @@ class CPO_Widget_Author extends WP_Widget {
 
 	function widget( $args, $instance ) {
 
-		$widget_id = str_replace( '-', '_', $widget_id );
+		$widget_id = str_replace( '-', '_', $args['widget_id'] );
 		$title     = apply_filters( 'widget_title', $instance['title'] );
 		$userid    = intval( $instance['user'] );
 		$userdata  = get_userdata( $userid );

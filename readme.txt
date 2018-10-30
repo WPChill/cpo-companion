@@ -3,7 +3,7 @@ Contributors: giucu91, cpothemes
 Tags: portfolio, features, slider, testimonials, clients, team, team members, services, recent, recent posts, author, author profile, author badge, banner, ad, advertising, twitter, tweet, social, icons, social profile, flickr, badge, image, latest, items, widget, sidebar, button, counter, register, message, shortcode, share, gallery, slideshow, accordion, toggle, content, short code, tooltip, jquery, spoiler, links, list, custom, leading, notice, icon, touch, icons, team, testimonial, bar, progress, feed, portfolio, shortcodes, map, google map, animation, css3, transition, pricing, pricing table
 Requires at least: 3.8
 Tested up to: 4.9.1
-Stable tag: trunk
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -76,6 +76,7 @@ CPO Shortcodes also includes an number of more advanced shortcodes that let you 
 **Social Profiles** - Add links to your preferred social profiles, being able to choose from a long list of available social networks.
 **Recent Tweets** - Display your latest tweets from any Twitter account. This widgets provides support for the **Twitter API 1.1**.
 **Flickr Images** - Show your latest images from a Flickr account right into your sidebar, and linking to your Flickr gallery.
+**Instagram Images** - Show your latest images from a Instagram account right into your sidebar, and linking to your Instagram account.
 **Author Badge** - Display the profile of a specific user, showing the name, image, and profile description.
 
 > This plugin is maintained and supported by Macho Themes. 
@@ -114,6 +115,15 @@ CPO Shortcodes also includes an number of more advanced shortcodes that let you 
 11. Display a list of links to your social profiles
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed Flickr Widget
+* Fixed Ad Space Widget
+* Fixed Author Widget
+* Added Instragram Widget
+* Added an option to import theme settings
+* Added more hooks.
+* Fixed Google maps shortcode
 
 = 1.0.0 =
 * Plugin release, yay!

@@ -84,7 +84,7 @@ class CPO_Widget_Flickr extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'user_id' ) ); ?>"><?php esc_html_e( 'User ID', 'cpo-companion' ); ?></label>
 			<input type="text" value="<?php echo esc_attr( $instance['user_id'] ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'user_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'user_id' ) ); ?>" class="widefat" /><br />
-			</small>
+			<span><?php echo sprintf( esc_html__( 'If you don\'t find your user\'s ID please use this %slink%s' ), '<a href="https://www.webpagefx.com/tools/idgettr/" target="_blank">', '</a>' ) ?></span><br />
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of Photos', 'cpo-companion' ); ?></label><br/>
