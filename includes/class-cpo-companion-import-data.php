@@ -11,9 +11,19 @@ class CPO_Companion_Import_Data {
 
 	function __construct() {
 
+		$theme = get_template();
+
 		$this->content_path   = apply_filters( 'cpo_companion_content', '' );
 		$this->widget_path    = apply_filters( 'cpo_companion_widgets', '' );
 		$this->theme_settings = apply_filters( 'cpo_companion_theme_settings', array() );
+
+		if ( '' == $this->content_path && apply_filters( 'cpo_theme_have_content', false ) ) {
+			$this->content_path = CPO_COMPANION_PATH . '/demo/' . $theme . '/content.xml';
+		}
+
+		if ( '' == $this->widget_path && apply_filters( 'cpo_theme_have_widgets', false ) ) {
+			$this->widget_path = CPO_COMPANION_PATH . '/demo/' . $theme . '/widgets.wie';
+		}
 
 		$this->theme_settings_name = apply_filters( 'cpo_companion_theme_settings_name', '' );
 		$this->import_option       = apply_filters( 'cpo_companion_import_option', '' );

@@ -141,7 +141,7 @@ if ( ! function_exists( 'cpo_tax_portfoliotag' ) ) {
 add_action( 'pre_get_posts', 'cpo_tax_portfolio_query' );
 if ( ! function_exists( 'cpo_tax_portfolio_query' ) ) {
 	function cpo_tax_portfolio_query( $query ) {
-		if ( ( is_tax( 'cpo_portfolio_category' ) && is_tax( 'cpo_portfolio_tag' ) ) && $query->is_main_query() && ! is_admin() ) {
+		if ( $query->is_main_query() && ! is_admin() && ( is_tax( 'cpo_portfolio_category' ) && is_tax( 'cpo_portfolio_tag' ) ) ) {
 			$columns = cpo_get_option( 'portfolio_columns' );
 			if ( '' != $columns && $columns > 0 ) {
 				$post_number = cpo_get_option( 'portfolio_columns' ) * 4;

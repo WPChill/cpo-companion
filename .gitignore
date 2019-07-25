@@ -1,0 +1,5 @@
+node_modules/*
+.idea/*
+allegiant-lite.zip
+cpo-companion.zip
+phpcs.ruleset.xml
