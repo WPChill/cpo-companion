@@ -3,3 +3,4 @@ node_modules/*
 allegiant-lite.zip
 cpo-companion.zip
 phpcs.ruleset.xml
+.standard.json
