@@ -116,6 +116,9 @@ CPO Shortcodes also includes an number of more advanced shortcodes that let you 
 
 == Changelog ==
 
+= 1.0.4 =
+* Fixed Post List Shortcode
+
 = 1.0.3 =
 * Added demo content for lite themes
 
