@@ -21,6 +21,11 @@ function cpo_cpost_team() {
 		'parent_item_colon'  => '',
 	);
 
+	$member_slug = cpo_get_option( 'slug_team_member' );
+	if ( '' == $member_slug ) {
+		$member_slug = 'team-member';
+	}
+
 	$fields = array(
 		'labels'              => $labels,
 		'public'              => true,
@@ -28,7 +33,7 @@ function cpo_cpost_team() {
 		'exclude_from_search' => true,
 		'show_ui'             => $show_ui,
 		'query_var'           => true,
-		'rewrite'             => true,
+		'rewrite'             => array( 'slug' => apply_filters( 'cpotheme_slug_team_member', $member_slug ) ),
 		'capability_type'     => 'page',
 		'hierarchical'        => false,
 		'menu_icon'           => 'dashicons-universal-access',
@@ -37,6 +42,9 @@ function cpo_cpost_team() {
 	);
 
 	register_post_type( 'cpo_team', $fields );
+	if ( 'team-member' != $member_slug) {
+		flush_rewrite_rules();
+		}
 }
 
 
