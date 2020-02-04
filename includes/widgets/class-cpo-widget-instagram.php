@@ -84,7 +84,7 @@ class CPO_Widget_Instagram extends WP_Widget {
 			
 			<label for="<?php echo esc_attr( $this->get_field_id( 'access_token' ) ); ?>"><?php esc_html_e( 'Access Token', 'cpo-companion' ); ?></label>
 			<input type="text" value="<?php echo esc_attr( $instance['access_token'] ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'access_token' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'access_token' ) ); ?>" class="widefat" /><br />
-			<?php esc_html_e('generate an instagram access token using ', 'cpo-companion' ); ?><a href="<?php echo esc_url('http://instagram.pixelunion.net/');?>" target="_blank"><?php esc_html_e('this link', 'cpo-companion'); ?></a>		
+			<?php esc_html_e('generate an instagram access token using ', 'cpo-companion' ); ?><a href="<?php echo esc_url('https://instagram.pixelunion.net/');?>" target="_blank"><?php esc_html_e('this link', 'cpo-companion'); ?></a>		
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of Photos', 'cpo-companion' ); ?></label><br/>

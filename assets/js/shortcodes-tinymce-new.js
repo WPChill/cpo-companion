@@ -11,7 +11,7 @@
             {
               text: 'Button',
               onclick: function() {
-                editor.selection.setContent( '[button color="red" url="http://www.url.com" size="medium"]' + editor.selection.getContent() + '[/button]' );
+                editor.selection.setContent( '[button color="red" url="https://www.url.com" size="medium"]' + editor.selection.getContent() + '[/button]' );
               }
             },
 
@@ -28,7 +28,7 @@
                       type: 'textbox',
                       name: 'buttonUrl',
                       label: 'Button: URL',
-                      value: 'http://www.wpexplorer.com/symple-shortcodes/'
+                      value: 'https://www.wpexplorer.com/symple-shortcodes/'
                     },
 
                     // Button Border Radius

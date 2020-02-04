@@ -571,7 +571,7 @@
   var ctscGeneratorButton = [
     { type: 'textbox', name: 'text', label: 'Button Text', value: 'Read More' },
     { type: 'textbox', name: 'description', label: 'Description Text', value: 'Click Here' },
-    { type: 'textbox', name: 'url', label: 'Target URL', value: 'http://www.cpothemes.com', minWidth: 350 },
+    { type: 'textbox', name: 'url', label: 'Target URL', value: 'https://www.cpothemes.com', minWidth: 350 },
     { type: 'textbox', name: 'background', label: 'Background Color', value: '#666666' },
     { type: 'textbox', name: 'gradient', label: 'Gradient Color', value: '#444444' },
     { type: 'textbox', name: 'color', label: 'Text Color', value: '#FFFFFF' },
@@ -980,7 +980,7 @@
       name: 'redirect',
       label: 'Redirect URL',
       value: '',
-      tooltip: 'Redirect the user after a successful login. By default, the current page will be used. Example: http://mysite.com'
+      tooltip: 'Redirect the user after a successful login. By default, the current page will be used. Example: https://mysite.com'
     },
     {
       type: 'textbox',
@@ -1034,7 +1034,7 @@
 
 //Registration Form
   var ctscGeneratorRegister = [
-    { type: 'textbox', name: 'redirect', label: 'Redirect URL', value: '', tooltip: 'Redirect the user after successfully registering. Example: http://mysite.com' },
+    { type: 'textbox', name: 'redirect', label: 'Redirect URL', value: '', tooltip: 'Redirect the user after successfully registering. Example: https://mysite.com' },
     { type: 'textbox', name: 'content', label: 'Logged In Message', value: '', tooltip: 'This content will be displayed when the user is logged in.' },
     { type: 'textbox', name: 'username', label: 'Username Text', value: 'Username' },
     { type: 'textbox', name: 'email', label: 'Email Text', value: 'Email' },
