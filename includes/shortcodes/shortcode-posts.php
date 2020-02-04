@@ -13,7 +13,7 @@ if ( ! function_exists( 'cpo_shortcode_posts' ) ) {
 				'order'     => 'DESC',
 				'orderby'   => 'date',
 				'style'     => '',
-				'thumbnail' => 'thumbnail',
+				'thumbnail' => '',
 				'excerpt'   => '',
 				'date'      => '',
 				'author'    => '',
@@ -93,7 +93,7 @@ if ( ! function_exists( 'cpo_shortcode_posts' ) ) {
 				//Post Item Output
 				$output .= '<div class="ctsc-post ' . esc_attr( $post_class ) . '">';
 				if ( has_post_thumbnail() && 'none' != $thumbnail ) {
-					$output .= '<div class="ctsc-post-thumbnail"><a href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . get_the_post_thumbnail( get_the_ID(), $thumbnail ) . '</a></div>';
+					$output .= '<div class="ctsc-post-thumbnail"><a href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . get_the_post_thumbnail( get_the_ID(), $attributes['thumbnail'] ) . '</a></div>';
 				}
 				$output .= '<div class="ctsc-post-body">';
 				$output .= '<h3 class="ctsc-post-title"><a href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . esc_html( get_the_title() ) . '</a></h3>';

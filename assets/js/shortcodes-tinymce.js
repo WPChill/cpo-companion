@@ -1481,9 +1481,9 @@
                     var elementClass = '' !== e.data[ 'class' ] ? ' class="' + e.data[ 'class' ] + '"' : '';
                     var elementAnimation = '' !== e.data.animation ? ' animation="' + e.data.animation + '"' : '';
                     editor.selection.setContent(
-                        '[' + ctscVars.prefix + 'posts type="' + e.data.type + '" number="' + e.data.number + '" columns="' + e.data.columns + '" style="' + e.data.style +
-                        '" date="' + e.data.date + '" author="' + e.data.author + '" comments="' + e.data.comments + '" excerpt="' + e.data.excerpt + '" after="' + e.data.after +
-                        '" description="' + e.data.description + '" color="' + e.data.color + '" ' + elementID + elementClass + elementAnimation + ']' );
+                      '[' + ctscVars.prefix + 'posts type="' + e.data.type + '" number="' + e.data.number + '" thumbnail="' + e.data.thumbnail + '" columns="' + e.data.columns + '" style="' + e.data.style +
+                      '" date="' + e.data.date + '" author="' + e.data.author + '" comments="' + e.data.comments + '" excerpt="' + e.data.excerpt + '" after="' + e.data.after +
+                      '" description="' + e.data.description + '" color="' + e.data.color + '" ' + elementID + elementClass + elementAnimation + ']' );
                   }
                 } );
               }
