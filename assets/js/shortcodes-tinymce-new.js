@@ -28,7 +28,7 @@
                       type: 'textbox',
                       name: 'buttonUrl',
                       label: 'Button: URL',
-                      value: 'https://www.wpexplorer.com/symple-shortcodes/'
+                      value: 'https://cpothemes.com/'
                     },
 
                     // Button Border Radius

@@ -23,7 +23,7 @@ function cpo_cpost_team() {
 
 	$member_slug = cpo_get_option( 'slug_team_member' );
 	if ( '' == $member_slug ) {
-		$member_slug = 'team-member';
+		$member_slug = 'cpo_team';
 	}
 
 	$fields = array(
@@ -42,9 +42,7 @@ function cpo_cpost_team() {
 	);
 
 	register_post_type( 'cpo_team', $fields );
-	if ( 'team-member' != $member_slug) {
-		flush_rewrite_rules();
-		}
+
 }
 
 

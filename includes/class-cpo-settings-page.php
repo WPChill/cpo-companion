@@ -99,7 +99,7 @@ class CPO_Settings_Page {
 				'description' => __( 'Indicates the slug to be used in the url for team members.', 'cpo-companion' ),
 				'section'     => 'ctct_team',
 				'type'        => 'text',
-				'placeholder' => 'team-member',
+				'placeholder' => 'cpo_team',
 				'setting'     => 'ctct_settings',
 			),
 
