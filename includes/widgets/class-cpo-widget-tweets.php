@@ -74,7 +74,7 @@ class CPO_Widget_Tweets extends WP_Widget {
 						$mentions = $this->find_mentions( $contents );
 						if ( is_array( $mentions ) ) {
 							foreach ( $mentions as $mention_key => $mention_value ) {
-								$contents = str_replace( '@' . $mention_value, '<a href="' . esc_url( 'http://twitter.com/' . $mention_value ) . '" title="' . sprintf( esc_attr__( '@%s on Twitter', 'cpo-companion' ), $mention_value ) . '">' . '@' . $mention_value . '</a>', $contents );
+								$contents = str_replace( '@' . $mention_value, '<a href="' . esc_url( 'https://twitter.com/' . $mention_value ) . '" title="' . sprintf( esc_attr__( '@%s on Twitter', 'cpo-companion' ), $mention_value ) . '">' . '@' . $mention_value . '</a>', $contents );
 							}
 						}
 					}

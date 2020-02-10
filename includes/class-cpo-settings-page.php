@@ -94,6 +94,15 @@ class CPO_Settings_Page {
 				'setting'     => 'ctct_settings',
 			),
 
+			'slug_team_member'      => array(
+				'label'       => __( 'Team Member Slug', 'cpo-companion' ),
+				'description' => __( 'Indicates the slug to be used in the url for team members.', 'cpo-companion' ),
+				'section'     => 'ctct_team',
+				'type'        => 'text',
+				'placeholder' => 'team-member',
+				'setting'     => 'ctct_settings',
+			),
+
 			'slug_team_category'      => array(
 				'label'       => __( 'Team Group Slug', 'cpo-companion' ),
 				'description' => __( 'Indicates the slug to be used in the URL for team groups.', 'cpo-companion' ),

@@ -5,13 +5,13 @@ Requires at least: 3.8
 Tested up to: 5.1
 Stable tag: 1.0.3
 License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 This plugin adds support for special content types in your website, such as a portfolio, features, and slides. It also contains a shortcode pack with over 30+ shortcodes and 5 useful widgets.
 
 == Description ==
 
-**NOTE: This plugin is meant for use with the WordPress themes developed by [CPOThemes](http://cpothemes.com) themes, which take advantage of it to add richer content areas and designs. Check them out!** 
+**NOTE: This plugin is meant for use with the WordPress themes developed by [CPOThemes](https://cpothemes.com) themes, which take advantage of it to add richer content areas and designs. Check them out!** 
 
 This plugin include 3 major components :
 * Content Types
