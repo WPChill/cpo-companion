@@ -41,8 +41,8 @@ if ( ! function_exists( 'cpo_shortcode_focus' ) ) {
 
 		//Entrace effects and delay
 		if ( '' != $attributes['animation'] ) {
-			wp_enqueue_script( 'ctsc-waypoints' );
-			wp_enqueue_script( 'ctsc-core' );
+			wp_enqueue_script( 'cpo-companion-waypoints' );
+			wp_enqueue_script( 'cpo-companion-core' );
 			$element_class .= ' ctsc-animation ctsc-animation-' . esc_attr( $attributes['animation'] );
 		}
 
