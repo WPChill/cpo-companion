@@ -30,7 +30,7 @@ jQuery( document ).ready( function() {
 
   //SKIPPING BUTTONS
   //Adds smooth scrolling to an anchor link with the specified class
-  jQuery( '.ctsc-back-top' ).click( function( e ) {
+  jQuery( '.ctsc-back-top' ).on('click', function( e ) {
     var targetID = jQuery( this ).attr( 'href' );
     e.preventDefault();
     jQuery( 'html, body' ).animate( {
