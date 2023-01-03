@@ -25,9 +25,9 @@ class CPO_Widget_Social extends WP_Widget {
 		$page_instagram = esc_attr( $instance['page_instagram'] );
 		$page_dribbble  = esc_attr( $instance['page_dribbble'] );
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		if ( '' != $title ) {
-			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+			echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		} ?>
 		<div class="ctwg-social" >
 			<?php if ( '' != $page_rss ) : ?>
@@ -87,7 +87,7 @@ class CPO_Widget_Social extends WP_Widget {
 			<?php endif; ?>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 
 	function update( $new_instance, $old_instance ) {

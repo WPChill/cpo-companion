@@ -217,14 +217,14 @@ class CPO_Settings_Page {
 
 	public function settings_page() {
 
-		$tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'settings';
+		$tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'settings';
 		if ( 'shortcodes' != $tab ) {
 			$tab = 'settings';
 		}
 
 		echo '<h2 class="nav-tab-wrapper wp-clearfix">';
-		echo '<a class="nav-tab ' . ( 'settings' == $tab ? 'nav-tab-active' : '' ) . '" href="' . admin_url( 'options-general.php?page=cpo_companion_settings&tab=settings' ) . '">' . esc_html__( 'Content Types', 'cpo-companion' ) . '</a>';
-		echo '<a class="nav-tab ' . ( 'shortcodes' == $tab ? 'nav-tab-active' : '' ) . '" href="' . admin_url( 'options-general.php?page=cpo_companion_settings&tab=shortcodes' ) . '">' . esc_html__( 'Shortcodes', 'cpo-companion' ) . '</a>';
+		echo '<a class="nav-tab ' . ( 'settings' == $tab ? 'nav-tab-active' : '' ) . '" href="' . esc_url( admin_url( 'options-general.php?page=cpo_companion_settings&tab=settings' ) ) . '">' . esc_html__( 'Content Types', 'cpo-companion' ) . '</a>';
+		echo '<a class="nav-tab ' . ( 'shortcodes' == $tab ? 'nav-tab-active' : '' ) . '" href="' . esc_url( admin_url( 'options-general.php?page=cpo_companion_settings&tab=shortcodes' ) ) . '">' . esc_html__( 'Shortcodes', 'cpo-companion' ) . '</a>';
 		echo '</h2>';
 
 		if ( 'shortcodes' == $tab ) {
@@ -281,7 +281,7 @@ class CPO_Settings_Page {
 	public function ctct_settings_section( $args ) {
 		foreach ( $this->settings_sections as $setting_id => $setting_data ) {
 			if ( $args['id'] == $setting_id ) {
-				echo '<p>' . $setting_data['description'] . '</p>';
+				echo '<p>' . wp_kses_post( $setting_data['description'] ) . '</p>';
 			}
 		}
 	}
@@ -299,16 +299,16 @@ class CPO_Settings_Page {
 		}
 		switch ( $args['type'] ) {
 			case 'text':
-				echo '<input name="' . $args['setting'] . '[' . $args['id'] . ']" type="text" id="' . $args['id'] . '" value="' . $args['value'] . '" placeholder="' . $args['placeholder'] . '" class="' . $args['class'] . '"/>';
+				echo '<input name="' . esc_attr( $args['setting'] ) . '[' . esc_attr( $args['id'] ) . ']" type="text" id="' . esc_attr( $args['id'] ) . '" value="' . esc_attr( $args['value'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" class="' . esc_attr( $args['class'] ) . '"/>';
 				if ( isset( $args['description'] ) && '' != $args['description'] ) {
-					echo '<p class="description">' . $args['description'] . '</p>';
+					echo '<p class="description">' . wp_kses_post( $args['description'] ) . '</p>';
 				}
 				break;
 
 			case 'checkbox':
-				echo '<label for="' . $args['id'] . '"><input name="' . $args['setting'] . '[' . $args['id'] . ']" type="checkbox" value="1" id="' . $args['id'] . '" ' . checked( 1, $args['value'], false ) . '" placeholder="' . $args['placeholder'] . '" class="' . $args['class'] . '"/> ' . $args['description'] . '</label>';
+				echo '<label for="' . esc_attr( $args['id'] ) . '"><input name="' . esc_attr( $args['setting'] ) . '[' . esc_attr( $args['id'] ) . ']" type="checkbox" value="1" id="' . esc_attr( $args['id'] ) . '" ' . checked( 1, $args['value'], false ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" class="' . esc_attr( $args['class'] ) . '"/> ' . wp_kses_post( $args['description'] ) . '</label>';
 				if ( isset( $args['description'] ) && '' != $args['description'] ) {
-					echo '<p class="description">' . $args['description'] . '</p>';
+					echo '<p class="description">' . wp_kses_post( $args['description'] ) . '</p>';
 				}
 				break;
 		}

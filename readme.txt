@@ -116,6 +116,9 @@ CPO Shortcodes also includes an number of more advanced shortcodes that let you 
 
 == Changelog ==
 
+= 1.0.5 =
+* Fixed vulnerability report, sanitizations and escapes.
+
 = 1.0.4 =
 * Added option for changing Team Member URL
 * Fixed Post List Shortcode

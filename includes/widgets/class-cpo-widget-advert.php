@@ -14,21 +14,21 @@ class CPO_Widget_Advert extends WP_Widget {
 	function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		if ( '' != $title ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		} ?>
-		<div class="ctwg-advert" id="<?php echo $args['widget_id']; ?>">
+		<div class="ctwg-advert" id="<?php echo esc_attr( $args['widget_id'] ); ?>">
 			<?php if ( '' == $instance['ad_code'] ) : ?>
 			<a href="<?php echo esc_url( $instance['link_url'] ); ?>">
 				<img src="<?php echo esc_url( $instance['image_url'] ); ?>" title="<?php echo esc_attr( $title ); ?>" alt="<?php echo esc_attr( $title ); ?>"/>
 			</a>
 			<?php else : ?>
-			<?php echo htmlspecialchars_decode( $instance['ad_code'] ); ?>
+			<?php echo htmlspecialchars_decode( $instance['ad_code'] ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?> 
 			<?php endif; ?>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 
 	function update( $new_instance, $old_instance ) {
@@ -66,11 +66,11 @@ class CPO_Widget_Advert extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'link_url' ) ); ?>"><?php esc_html_e( 'Link URL', 'cpo-companion' ); ?></label><br/>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'link_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'link_url' ) ); ?>" type="text" value="<?php echo esc_attr( $link_url ); ?>" />
 		</p>
-		<p><b>- <?php _e( 'or', 'cpo-companion' ); ?> -</b></p>
+		<p><b>- <?php esc_html_e( 'or', 'cpo-companion' ); ?> -</b></p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'ad_code' ) ); ?>"><?php esc_html_e( 'Advertising Code', 'cpo-companion' ); ?></label><br/>
 			<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'ad_code' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'ad_code' ) ); ?>">
-				<?php echo htmlspecialchars_decode( $ad_code ); ?>
+				<?php echo htmlspecialchars_decode( $ad_code ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
 			</textarea>
 		</p>
 		<p><?php esc_html_e( 'You can add an image linked to a specific URL, or alternatively paste your advertising code.', 'cpo-companion' ); ?></p>

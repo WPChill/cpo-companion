@@ -18,7 +18,6 @@ if ( ! function_exists( 'cpo_shortcode_testimonial' ) ) {
 
 		$element_class = ' ' . $attributes['class'];
 		$element_style = ' ctsc-testimonial-' . $attributes['style'];
-		$element_id    = '' != $attributes['id'] ? ' id="' . $attributes['id'] . '"' : '';
 		$content       = trim( $content );
 
 		if ( '' != $element_style ) {
@@ -36,7 +35,7 @@ if ( ! function_exists( 'cpo_shortcode_testimonial' ) ) {
 			$element_class .= ' ctsc-animation ctsc-animation-' . $attributes['animation'];
 		}
 
-		$output  = '<div class="ctsc-testimonial' . esc_attr( $element_class ) . '"' . $element_id . '>';
+		$output  = '<div class="ctsc-testimonial' . esc_attr( $element_class ) . '"' . ( '' != esc_attr( $attributes['id'] ) ? ' id="' . esc_attr( $attributes['id'] ) . '"' : '' ) . '>';
 		$output .= '<div class="ctsc-testimonial-content">';
 		$output .= wp_kses_post( $content );
 		$output .= '</div>';

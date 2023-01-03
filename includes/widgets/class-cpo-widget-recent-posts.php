@@ -21,7 +21,7 @@ class CPO_Widget_Recent_Posts extends WP_Widget {
 		}
 
 		if ( isset( $cache[ $args['widget_id'] ] ) ) {
-			echo $cache[ $args['widget_id'] ];
+			echo $cache[ $args['widget_id'] ]; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 			return;
 		}
 		ob_start();
@@ -47,9 +47,9 @@ class CPO_Widget_Recent_Posts extends WP_Widget {
 			)
 		);
 		if ( $recent_posts->have_posts() ) :
-			echo $args['before_widget'];
+			echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 			if ( '' != $title ) {
-				echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+				echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 			} ?>
 
 		<div class="ctwg-recent" >
@@ -78,7 +78,7 @@ class CPO_Widget_Recent_Posts extends WP_Widget {
 			<?php endwhile; ?>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		wp_reset_postdata();
 		endif;
 		$cache[ $args['widget_id'] ] = ob_get_flush();

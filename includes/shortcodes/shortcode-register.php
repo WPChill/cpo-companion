@@ -36,7 +36,7 @@ if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 
 			//If form has been sent, there must be an error
 			if ( isset( $_POST['ctsc-register-submit'] ) ) {
-				$error_message = isset( $_POST['ctsc-register-error'] ) ? esc_html( $_POST['ctsc-register-error'] ) : false;
+				$error_message = isset( $_POST['ctsc-register-error'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-error'] ) ) : false;
 				if ( $error_message ) {
 					wp_enqueue_style( 'cpo-companion-fontawesome' );
 					$output .= '<div class="ctsc-message ctsc-message-error">' . esc_html( $error_message ) . '</div>';
@@ -48,27 +48,27 @@ if ( ! function_exists( 'cpo_shortcode_register' ) ) {
 			$output .= '<input type="hidden" name="ctsc-register-check" value="">';
 
 			//Username
-			$field_username = isset( $_POST['ctsc-register-username'] ) ? $_POST['ctsc-register-username'] : '';
+			$field_username = isset( $_POST['ctsc-register-username'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-username'] ) ) : '';
 			$output        .= '<div class="ctsc-register-field">';
 			$output        .= '<input type="text" class="ctsc-register-username" name="ctsc-register-username" value="' . esc_attr( $field_username ) . '" placeholder="' . esc_attr( $attributes['username'] ) . '" required>';
 			$output        .= '</div>';
 
 			//Email
-			$field_email = isset( $_POST['ctsc-register-email'] ) ? $_POST['ctsc-register-email'] : '';
+			$field_email = isset( $_POST['ctsc-register-email'] ) ? sanitize_email( wp_unslash( $_POST['ctsc-register-email'] ) ) : '';
 			$output     .= '<div class="ctsc-register-field">';
 			$output     .= '<input type="text" class="ctsc-register-email" name="ctsc-register-email" value="' . esc_attr( $field_email ) . '" placeholder="' . esc_attr( $attributes['email'] ) . '" required>';
 			$output     .= '</div>';
 
 			//First Name
 			if ( '' != $firstname ) {
-				$field_firstname = isset( $_POST['ctsc-register-firstname'] ) ? $_POST['ctsc-register-firstname'] : '';
+				$field_firstname = isset( $_POST['ctsc-register-firstname'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-firstname'] ) ) : '';
 				$output         .= '<div class="ctsc-register-field">';
 				$output         .= '<input type="text" class="ctsc-register-username" name="ctsc-register-firstname" value="' . esc_attr( $field_firstname ) . '" placeholder="' . esc_attr( $attributes['firstname'] ) . '" required>';
 				$output         .= '</div>';
 			}
 
 			//Password
-			$field_password = isset( $_POST['ctsc-register-password'] ) ? $_POST['ctsc-register-password'] : '';
+			$field_password = isset( $_POST['ctsc-register-password'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-password'] ) ) : '';
 			$output        .= '<div class="ctsc-register-field">';
 			$output        .= '<input type="password" class="ctsc-register-password" name="ctsc-register-password" value="' . esc_attr( $field_password ) . '" placeholder="' . esc_attr( $attributes['password'] ) . '" required>';
 			$output        .= '</div>';
@@ -100,12 +100,12 @@ function cpo_register_new_user() {
 	$error = false;
 	if ( isset( $_POST['ctsc-register-submit'] ) ) {
 		//Validate all fields
-		$field_username  = isset( $_POST['ctsc-register-username'] ) ? esc_attr( $_POST['ctsc-register-username'] ) : false;
-		$field_email     = isset( $_POST['ctsc-register-email'] ) ? esc_attr( $_POST['ctsc-register-email'] ) : false;
-		$field_firstname = isset( $_POST['ctsc-register-firstname'] ) ? esc_attr( $_POST['ctsc-register-firstname'] ) : false;
-		$field_password  = isset( $_POST['ctsc-register-password'] ) ? esc_attr( $_POST['ctsc-register-password'] ) : false;
-		$field_captcha   = isset( $_POST['ctsc-register-check'] ) ? esc_attr( $_POST['ctsc-register-check'] ) : false;
-		$field_redirect  = isset( $_POST['ctsc-register-redirect'] ) ? esc_url( $_POST['ctsc-register-redirect'] ) : false;
+		$field_username  = isset( $_POST['ctsc-register-username'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-username'] ) ): false;
+		$field_email     = isset( $_POST['ctsc-register-email'] ) ? sanitize_email( wp_unslash( $_POST['ctsc-register-email'] ) ) : false;
+		$field_firstname = isset( $_POST['ctsc-register-firstname'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-firstname'] ) ) : false;
+		$field_password  = isset( $_POST['ctsc-register-password'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-password'] ) ) : false;
+		$field_captcha   = isset( $_POST['ctsc-register-check'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-check'] ) ) : false;
+		$field_redirect  = isset( $_POST['ctsc-register-redirect'] ) ? sanitize_text_field( wp_unslash( $_POST['ctsc-register-redirect'] ) ) : false;
 
 		//Validate Required Fields
 		if ( ! $field_username || ! $field_email || ! $field_password || $field_captcha ) {

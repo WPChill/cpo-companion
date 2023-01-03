@@ -33,12 +33,12 @@ class CPO_Widget_Author extends WP_Widget {
 		$output .= '</div>';
 		$output .= '</div>';
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		if ( '' != $title ) {
-			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+			echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		}
-		echo $output;
-		echo $args['after_widget'];
+		echo $output; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 
 	function update( $new_instance, $old_instance ) {

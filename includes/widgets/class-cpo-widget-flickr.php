@@ -36,9 +36,9 @@ class CPO_Widget_Flickr extends WP_Widget {
 
 		$photos = array_slice( $photos, 0, $number ); 
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		if ( '' != $title ) {
-			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+			echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		} 
 		?>
 
@@ -50,7 +50,7 @@ class CPO_Widget_Flickr extends WP_Widget {
 			<?php endforeach; ?>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 
 		set_transient( 'cpo_widget_flickr_' . $this->id, $data, 12 * HOUR_IN_SECONDS );
 	}

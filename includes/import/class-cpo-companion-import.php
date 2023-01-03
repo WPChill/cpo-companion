@@ -145,8 +145,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 			}
 
 			$create_users = $this->allow_create_users();
-
-			foreach ( (array) $_POST['imported_authors'] as $i => $old_login ) {
+			$imported_authors = array_map( 'sanitize_text_field', wp_unslash( $_POST['imported_authors'] ) );
+			foreach (  $imported_authors as $i => $old_login ) {
 				// Multisite adds strtolower to sanitize_user. Need to sanitize here to stop breakage in process_posts.
 				$santized_old_login = sanitize_user( $old_login, true );
 				$old_id             = isset( $this->authors[ $old_login ]['author_id'] ) ? intval( $this->authors[ $old_login ]['author_id'] ) : false;
@@ -161,7 +161,8 @@ if ( class_exists( 'WP_Importer' ) ) {
 					}
 				} elseif ( $create_users ) {
 					if ( ! empty( $_POST['user_new'][ $i ] ) ) {
-						$user_id = wp_create_user( $_POST['user_new'][ $i ], wp_generate_password() );
+						$user_new = sanitize_text_field( wp_unslash( $_POST['user_new'][ $i ] ) );
+						$user_id = wp_create_user( $user_new, wp_generate_password() );
 					} elseif ( '1.0' != $this->version ) {
 						$user_data = array(
 							'user_login'   => $old_login,

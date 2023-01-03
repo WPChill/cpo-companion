@@ -94,15 +94,15 @@ class CPO_Widget_Tweets extends WP_Widget {
 			$output .= '</div>';
 		}
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		if ( '' != $title ) {
-			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+			echo $args['before_title'] . esc_html( $title ) . $args['after_title']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		}
 		if ( '' == $output ) {
 			$output .= 'Impossible to retrieve tweets. Try again later.';
 		}
-		echo $output;
-		echo $args['after_widget'];
+		echo $output; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+		echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 
 	function update( $new_instance, $old_instance ) {
@@ -143,7 +143,7 @@ class CPO_Widget_Tweets extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of Tweets', 'cpo-companion' ); ?></label><br/>
 			<input id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['number'] ); ?>" size="3" />
 		</p>
-		<p><b><?php _e( 'API Settings', 'cpo-companion' ); ?></b></p>
+		<p><b><?php esc_html_e( 'API Settings', 'cpo-companion' ); ?></b></p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'consumer_key' ) ); ?>"><?php esc_html_e( 'Consumer Key', 'cpo-companion' ); ?></label><br/>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'consumer_key' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'consumer_key' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['consumer_key'] ); ?>" />
