@@ -2,8 +2,8 @@
 Contributors: machothemes
 Tags: cpo companion, shortcodes, author widget, instagram widget, flickr widget, twitter widget, custom post types, clients, sliders, team members, services, portfolios
 Requires at least: 3.8
-Tested up to: 5.1
-Stable tag: 1.0.4
+Tested up to: 6.1
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -116,7 +116,7 @@ CPO Shortcodes also includes an number of more advanced shortcodes that let you 
 
 == Changelog ==
 
-= 1.0.5 =
+= 1.1.0 =
 * Fixed vulnerability report, sanitizations and escapes.
 
 = 1.0.4 =
