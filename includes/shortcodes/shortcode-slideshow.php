@@ -82,10 +82,6 @@ if ( ! function_exists( 'cpo_shortcode_slide' ) ) {
 
 	/* Single Slide Shortcode -- For use within the content slideshow */
 	function cpo_shortcode_slide( $atts, $content = null ) {
-		wp_enqueue_script( 'ctsc-core' );
-		wp_enqueue_style( 'ctsc-shortcodes' );
-		//wp_enqueue_script('ctsc-toggles');
-		wp_enqueue_script( 'cpothemes-cycle' );
 
 		$attributes = shortcode_atts(
 			array(
