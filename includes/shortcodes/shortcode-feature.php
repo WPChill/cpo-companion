@@ -3,7 +3,6 @@
 /* Feature Block Shortcode */
 if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 	function cpo_shortcode_feature( $atts, $content = null ) {
-		wp_enqueue_style( 'cpo-companion-fontawesome' );
 
 		$attributes = shortcode_atts(
 			array(
@@ -74,7 +73,7 @@ if ( ! function_exists( 'cpo_shortcode_feature' ) ) {
 		if ( '' != $attributes['image'] ) {
 			$output .= '<div class="ctsc-feature-image"><img src="' . esc_url( $element_image ) . '"></div>';
 		} elseif ( '' != $attributes['icon'] ) {
-			wp_enqueue_style( 'style_fontawesome' );
+			wp_enqueue_style( 'cpo-companion-fontawesome' );
 			$output .= '<div class="ctsc-feature-icon"' . $element_icon_style . '><span class="icon-' . esc_attr( $attributes['icon'] ) . '"></span></div>';
 		}
 		$output .= '<div class="ctsc-feature-body">';
